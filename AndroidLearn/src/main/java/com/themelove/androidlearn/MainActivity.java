@@ -1,17 +1,20 @@
 package com.themelove.androidlearn;
 
+import android.content.res.AssetFileDescriptor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<VoiceBean> mVoiceBeanList;
+    private List<AudioBean> mAudioBeanList;
     private String url="http://cuotiben-mp3.qiniudn.com/XYA07491.mp3";
+    private String path="/assets/NewDay.mp3";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,45 +25,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        if(mVoiceBeanList==null){
-           mVoiceBeanList=new ArrayList<VoiceBean>();
+        if(mAudioBeanList ==null){
+           mAudioBeanList =new ArrayList<AudioBean>();
         }
         for (int i=0;i<=20;i++){
-            mVoiceBeanList.add(new VoiceBean(url,VoiceState.noStart));
+            mAudioBeanList.add(new AudioBean(url, AudioState.inited));
         }
     }
 
     private void initView() {
+
         ListView lv = (ListView) findViewById(R.id.lv);
-        final VoiceAdapter voiceAdapter = new VoiceAdapter(this, mVoiceBeanList);
-        voiceAdapter.setOnVoiceClickListener(new VoiceAdapter.OnVoiceClickListener() {
+
+        final AudioAdapter audioAdapter = new AudioAdapter(this, mAudioBeanList);
+        audioAdapter.setOnVoiceClickListener(new AudioAdapter.OnVoiceClickListener() {
             @Override
             public void onClickListener(int position) {
 
 //              重新构造数据
-                for (int i=0;i<mVoiceBeanList.size();i++){
-                    VoiceBean voiceBean = mVoiceBeanList.get(i);
-                    VoiceState voiceState = voiceBean.getVoiceState();
+                for (int i = 0; i< mAudioBeanList.size(); i++){
+                    AudioBean audioBean = mAudioBeanList.get(i);
+                    AudioState audioState = audioBean.getAudioState();
                     if (i==position){
-                        if (voiceState==VoiceState.noStart){
-                            voiceBean.setVoiceState(VoiceState.running);
-                        }else if(voiceState==VoiceState.running){
-                            voiceBean.setVoiceState(VoiceState.pause);
-                        }else if(voiceState==VoiceState.pause){
-                            voiceBean.setVoiceState(VoiceState.continuePlay);
-                        }else if(voiceState==VoiceState.continuePlay){
-                            voiceBean.setVoiceState(VoiceState.pause);
+                        if (audioState == AudioState.inited){
+                            audioBean.setAudioState(AudioState.started);
+                        }else if(audioState == AudioState.started){
+                            audioBean.setAudioState(AudioState.paused);
+                        }else if(audioState == AudioState.paused){
+                            audioBean.setAudioState(AudioState.started);
+                        }else if(audioState == AudioState.stopped){
+                            audioBean.setAudioState(AudioState.started);
                         }
                     }else{
-                        voiceBean.setVoiceState(VoiceState.noStart);
+                        audioBean.setAudioState(AudioState.inited);
                     }
                 }
-
-            voiceAdapter.setDataAndRefresh(mVoiceBeanList);
-
+            audioAdapter.setDataAndRefresh(mAudioBeanList);
             }
         });
-        lv.setAdapter(voiceAdapter);
+        lv.setAdapter(audioAdapter);
     }
 
 }

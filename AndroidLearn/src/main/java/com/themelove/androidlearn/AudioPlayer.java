@@ -15,13 +15,13 @@ import java.io.IOException;
  * @author --ZhangJiQiang
  * @date 2015-4-27
  */
-public class ImPlayer implements OnPreparedListener {
+public class AudioPlayer implements OnPreparedListener {
 
         private MediaPlayer mediaPlayer; // 媒体播放器
         private OnCompletionListener mCompletionListener;
         private OnPreparedListener   mPreparedListener;
         // 初始化播放器
-        public ImPlayer(String url) {
+        public AudioPlayer(String url) {
             super();
             try {
                 mediaPlayer = new MediaPlayer();
@@ -64,7 +64,10 @@ public class ImPlayer implements OnPreparedListener {
             }
         }
 
-        public void continuePlay(){
+    /**
+     * 继续播放，也是调用MediaPlayer的play()方法，内部自动维护记住上次播放功能
+     */
+    public void continuePlay(){
             if (mediaPlayer!=null){
                 mediaPlayer.start();
             }
@@ -100,7 +103,10 @@ public class ImPlayer implements OnPreparedListener {
         public void release() {
             if (mediaPlayer != null) {
                 mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = null;
             }
+
         }
 
         /**
@@ -109,8 +115,6 @@ public class ImPlayer implements OnPreparedListener {
         public void stop() {
             if (mediaPlayer != null) {
                 mediaPlayer.stop();
-                mediaPlayer.release();
-                mediaPlayer = null;
             }
         }
 
