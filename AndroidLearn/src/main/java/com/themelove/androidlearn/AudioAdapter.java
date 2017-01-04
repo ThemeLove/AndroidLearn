@@ -2,12 +2,16 @@ package com.themelove.androidlearn;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -15,14 +19,14 @@ import java.util.List;
  * Created by lqs on 2016/12/31.
  */
 
-public class VoiceAdapter extends BaseAdapter{
+public class AudioAdapter extends BaseAdapter{
     private Context mContext;
-    private List<VoiceBean> mVoiceBeanList;
+    private List<AudioBean> mAudioBeanList;
     private LayoutInflater mInflater;
     private OnVoiceClickListener mListener;
-    public VoiceAdapter(Context context, List<VoiceBean>voiceBeanList){
+    public AudioAdapter(Context context, List<AudioBean> audioBeanList){
         mContext=context;
-        mVoiceBeanList=voiceBeanList;
+        mAudioBeanList = audioBeanList;
         mInflater=LayoutInflater.from(mContext);
     }
 
@@ -30,19 +34,19 @@ public class VoiceAdapter extends BaseAdapter{
         mListener=listener;
     }
 
-    public void setDataAndRefresh(List<VoiceBean> voiceBeanList){
-        mVoiceBeanList=voiceBeanList;
+    public void setDataAndRefresh(List<AudioBean> audioBeanList){
+        mAudioBeanList = audioBeanList;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return mVoiceBeanList.size();
+        return mAudioBeanList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mVoiceBeanList.get(position);
+        return mAudioBeanList.get(position);
     }
 
     @Override
@@ -52,37 +56,35 @@ public class VoiceAdapter extends BaseAdapter{
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        VoiceBean voiceBean = (VoiceBean) getItem(position);
+        AudioBean audioBean = (AudioBean) getItem(position);
         ViewHolder holder=null;
         if (convertView==null){
-            holder=new ViewHolder(voiceBean);
+            holder=new ViewHolder(audioBean);
             convertView=mInflater.inflate(R.layout.item_voice,parent,false);
-            holder.mPlayBtn= (Button) convertView.findViewById(R.id.btn_play);
+            holder.mRlVoice= (RelativeLayout) convertView.findViewById(R.id.rl_voice);
+            holder.mPlayBtn= (ImageView) convertView.findViewById(R.id.iv_voice);
+            holder.mDuration = (TextView) convertView.findViewById(R.id.tv_duration);
+            AnimationDrawable anim = (AnimationDrawable) holder.mPlayBtn.getDrawable();
+            holder.anim=anim;
             convertView.setTag(holder);
         }
         holder=(ViewHolder)convertView.getTag();
-        if(voiceBean.getVoiceState()==VoiceState.running){
-            holder.mPlayer.play();
-            holder.mPlayBtn.setText("正在播放");
-            holder.mPlayBtn.setBackgroundColor(Color.YELLOW);
-        }else if(voiceBean.getVoiceState()==VoiceState.noStart){
-            holder.mPlayer.pause();
-            holder.mPlayBtn.setText("开始播放");
-            holder.mPlayBtn.setBackgroundColor(Color.BLUE);
-        }else if(voiceBean.getVoiceState()==VoiceState.continuePlay){
-            holder.mPlayer.continuePlay();
-            holder.mPlayBtn.setText("正在播放");
-            holder.mPlayBtn.setBackgroundColor(Color.YELLOW);
-        }else if(voiceBean.getVoiceState()==VoiceState.pause){
-            holder.mPlayer.pause();
-            holder.mPlayBtn.setText("暂停中");
-            holder.mPlayBtn.setBackgroundColor(Color.RED);
-        }else if (voiceBean.getVoiceState()==VoiceState.stop){
+        holder.mDuration.setText("3'30__"+position);
+        if(audioBean.getAudioState()== AudioState.inited){//第一次的初始化完成状态
+//            holder.mPlayBtn.setBackgroundResource(R.mipmap.voice_playing2);
             holder.mPlayer.stop();
-            holder.mPlayBtn.setText("播放完成");
-            holder.mPlayBtn.setBackgroundColor(Color.BLACK);
+        }else if(audioBean.getAudioState()== AudioState.started){
+            holder.mPlayer.play();
+            holder.anim.start();
+        }else if(audioBean.getAudioState()== AudioState.paused){
+            holder.mPlayer.pause();
+            holder.anim.start();
+        }else if(audioBean.getAudioState()== AudioState.stopped){
+            holder.mPlayer.stop();
+            holder.anim.stop();
         }
-        holder.mPlayBtn.setOnClickListener(new View.OnClickListener() {
+
+        holder.mRlVoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener!=null){
@@ -94,14 +96,17 @@ public class VoiceAdapter extends BaseAdapter{
     }
 
     public class ViewHolder{
-        private VoiceBean mVoiceBean;
-        private ImPlayer mPlayer;
-        private Button mPlayBtn;
+        private AudioBean mAudioBean;
+        private AudioPlayer mPlayer;
+        private RelativeLayout mRlVoice;
+        private ImageView mPlayBtn;
+        private TextView  mDuration;
+        private AnimationDrawable anim;
 
 
-        public ViewHolder(VoiceBean voiceBean){
-            mVoiceBean=voiceBean;
-            mPlayer=new ImPlayer(mVoiceBean.getUrl());
+        public ViewHolder(AudioBean audioBean){
+            mAudioBean = audioBean;
+            mPlayer=new AudioPlayer(mAudioBean.getUrl());
             mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
@@ -115,7 +120,6 @@ public class VoiceAdapter extends BaseAdapter{
                 }
             });
         }
-
 
     }
 
