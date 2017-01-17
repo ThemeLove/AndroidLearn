@@ -1,10 +1,7 @@
 package com.themelove.androidlearn;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,28 +56,24 @@ public class AudioAdapter extends BaseAdapter{
         AudioBean audioBean = (AudioBean) getItem(position);
         ViewHolder holder=null;
         if (convertView==null){
-            holder=new ViewHolder(audioBean);
+            holder=new ViewHolder();
             convertView=mInflater.inflate(R.layout.item_voice,parent,false);
             holder.mRlVoice= (RelativeLayout) convertView.findViewById(R.id.rl_voice);
-            holder.mPlayBtn= (ImageView) convertView.findViewById(R.id.iv_voice);
-            holder.mDuration = (TextView) convertView.findViewById(R.id.tv_duration);
-            AnimationDrawable anim = (AnimationDrawable) holder.mPlayBtn.getDrawable();
-            holder.anim=anim;
+            holder.mDuration= (TextView) convertView.findViewById(R.id.tv_duration);
             convertView.setTag(holder);
         }
-        holder=(ViewHolder)convertView.getTag();
-        holder.mDuration.setText("3'30__"+position);
-        if(audioBean.getAudioState()== AudioState.inited){//第一次的初始化完成状态
-            holder.mPlayer.reset();
-        }else if(audioBean.getAudioState()== AudioState.started){
-            holder.mPlayer.play();
-            holder.anim.start();
-        }else if(audioBean.getAudioState()== AudioState.paused){
-            holder.mPlayer.pause();
-            holder.anim.start();
-        }else if(audioBean.getAudioState()== AudioState.stopped){
-            holder.mPlayer.stop();
-            holder.anim.stop();
+
+        holder= (ViewHolder) convertView.getTag();
+        AudioState audioState = audioBean.getAudioState();
+
+        if (audioState==AudioState.inited){
+            holder.mDuration.setText("初始化状态");
+        }else if(audioState==AudioState.started){
+            holder.mDuration.setText("正在播放");
+        }else if(audioState==AudioState.paused){
+            holder.mDuration.setText("暂停状态");
+        }else if(audioState==AudioState.stopped){
+            holder.mDuration.setText("播放完成");
         }
 
         holder.mRlVoice.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +84,7 @@ public class AudioAdapter extends BaseAdapter{
                 }
             }
         });
+
         return convertView;
     }
 
@@ -101,25 +95,6 @@ public class AudioAdapter extends BaseAdapter{
         private ImageView mPlayBtn;
         private TextView  mDuration;
         private AnimationDrawable anim;
-
-
-        public ViewHolder(AudioBean audioBean){
-            mAudioBean = audioBean;
-            mPlayer=new AudioPlayer(mAudioBean.getUrl());
-            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mPlayer.play();
-                }
-            });
-            mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-
-                }
-            });
-        }
-
     }
 
     public interface OnVoiceClickListener{
