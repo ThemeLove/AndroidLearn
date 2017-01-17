@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             mAudioBeanList.add(new AudioBean(url, AudioState.inited));
         }
 
-
+        AudioPlayer audioPlayer = new AudioPlayer();
     }
 
     private void initView() {

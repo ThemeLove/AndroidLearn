@@ -21,17 +21,14 @@ public class AudioPlayer implements OnPreparedListener {
         private OnCompletionListener mCompletionListener;
         private OnPreparedListener   mPreparedListener;
         // 初始化播放器
-        public AudioPlayer(String url) {
+        public AudioPlayer( ) {
             super();
             try {
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);// 设置媒体流类型
-                mediaPlayer.setDataSource(url);
-                mediaPlayer.prepareAsync();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
 
         public void setOnPreparedListener(OnPreparedListener preparedlistener){
@@ -64,6 +61,27 @@ public class AudioPlayer implements OnPreparedListener {
             }
         }
 
+        public void reset(){
+            if (mediaPlayer!=null){
+                mediaPlayer.reset();
+            }
+        }
+
+        public void prepare(){
+            if (mediaPlayer!=null){
+                try {
+                    mediaPlayer.prepare();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public void prepareAsync(){
+            if (mediaPlayer!=null){
+                mediaPlayer.prepareAsync();
+            }
+        }
     /**
      * 继续播放，也是调用MediaPlayer的play()方法，内部自动维护记住上次播放功能
      */

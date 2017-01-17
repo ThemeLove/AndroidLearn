@@ -71,8 +71,7 @@ public class AudioAdapter extends BaseAdapter{
         holder=(ViewHolder)convertView.getTag();
         holder.mDuration.setText("3'30__"+position);
         if(audioBean.getAudioState()== AudioState.inited){//第一次的初始化完成状态
-//            holder.mPlayBtn.setBackgroundResource(R.mipmap.voice_playing2);
-            holder.mPlayer.stop();
+            holder.mPlayer.reset();
         }else if(audioBean.getAudioState()== AudioState.started){
             holder.mPlayer.play();
             holder.anim.start();
