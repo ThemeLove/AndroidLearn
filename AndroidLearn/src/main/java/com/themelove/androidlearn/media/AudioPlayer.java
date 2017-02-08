@@ -1,11 +1,9 @@
-package com.themelove.androidlearn;
+package com.themelove.androidlearn.media;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
-import android.os.Handler;
-import android.os.Message;
 
 import java.io.IOException;
 

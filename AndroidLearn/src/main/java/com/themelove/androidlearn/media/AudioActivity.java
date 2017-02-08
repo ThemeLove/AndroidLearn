@@ -1,28 +1,29 @@
-package com.themelove.androidlearn;
+package com.themelove.androidlearn.media;
 
-import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+
+import com.themelove.androidlearn.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class AudioActivity extends AppCompatActivity {
 
     private List<AudioBean> mAudioBeanList;
     private String url="http://cuotiben-mp3.qiniudn.com/XYA07491.mp3";
     private AudioPlayer mPlayer;
     private AudioBean currentAudioBean;//当前正在播放的音乐对应的AudioBean
-    private  AudioAdapter audioAdapter;
+    private AudioAdapter audioAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_audio);
         initData();
         initView();
     }

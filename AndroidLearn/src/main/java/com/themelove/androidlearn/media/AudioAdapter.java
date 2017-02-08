@@ -1,9 +1,7 @@
-package com.themelove.androidlearn;
+package com.themelove.androidlearn.media;
 
 import android.content.Context;
-import android.content.SyncStatusObserver;
 import android.graphics.drawable.AnimationDrawable;
-import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import com.themelove.androidlearn.R;
+
 import java.util.List;
 
 /**
@@ -69,13 +67,13 @@ public class AudioAdapter extends BaseAdapter{
         holder= (ViewHolder) convertView.getTag();
         AudioState audioState = audioBean.getAudioState();
 
-        if (audioState==AudioState.inited){
+        if (audioState== AudioState.inited){
             holder.mDuration.setText("初始化状态");
-        }else if(audioState==AudioState.started){
+        }else if(audioState== AudioState.started){
             holder.mDuration.setText("正在播放");
-        }else if(audioState==AudioState.paused){
+        }else if(audioState== AudioState.paused){
             holder.mDuration.setText("暂停状态");
-        }else if(audioState==AudioState.stopped){
+        }else if(audioState== AudioState.stopped){
             holder.mDuration.setText("播放完成");
         }
 
