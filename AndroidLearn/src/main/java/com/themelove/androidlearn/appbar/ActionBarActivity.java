@@ -19,6 +19,8 @@ public class ActionBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState, persistentState);
 
         TextView textView = new TextView(this);
+        textView.setText("woshiceshi TextView");
+        setContentView(textView);
         textView.showContextMenu();
     }
 

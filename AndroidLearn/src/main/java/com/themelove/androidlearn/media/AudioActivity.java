@@ -1,9 +1,11 @@
 package com.themelove.androidlearn.media;
 
+import android.app.ActionBar;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.themelove.androidlearn.R;
 
@@ -23,6 +25,13 @@ public class AudioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+/*
+        TextView textView = new TextView(this);
+        textView.setText("What the fuck");
+        textView.setBackgroundColor(0xffff0000);
+        textView.setHeight(780);
+        setContentView(textView);*/
         setContentView(R.layout.activity_audio);
         initData();
         initView();
@@ -73,6 +82,14 @@ public class AudioActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        ActionBar actionBar = getActionBar();
+//        actionBar.setLogo(R.mipmap.ic_setting);
+        android.support.v7.app.ActionBar supportActionBar = getSupportActionBar();
+        supportActionBar.setLogo(R.mipmap.ic_setting);
+        supportActionBar.setIcon(R.drawable.voice_anim);/*设置actionbar上面的icon*/
+        supportActionBar.setTitle(getString(R.string.app_name));/*设置actionbar上面的name*/
+        supportActionBar.setDisplayHomeAsUpEnabled(true);/*显示home按钮*/
+        supportActionBar.setDisplayShowHomeEnabled(true);/*设置home按钮可以被点击*/
 
         ListView lv = (ListView) findViewById(R.id.lv);
 
