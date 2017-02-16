@@ -1,4 +1,4 @@
-package com.themelove.androidlearn;
+package com.themelove.androidlearn.media;
 
 /**
  * Created by lqs on 2016/12/31.

@@ -8,4 +8,29 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--ThemeLove的App通用的style-->
+    <style name="AppThemeLove" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--ToolBar主标题的style-->
+    <style name="ToolBar_Title_Text" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/dp18</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--ToolBar副标题的style-->
+    <style name="ToolBar_SubTitle_Text" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">@dimen/dp18</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--ToolBar的菜单style-->
+    <style name="ToolBar_PopupOverflow" parent="@style/ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColorPrimary">@color/blue_green</item>
+        <item name="android:textSize">@dimen/dp18</item>
+        <item name="android:background">@color/white</item>
+    </style>
 </resources>
