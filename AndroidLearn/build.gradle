@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.themelove.androidlearn"
-        minSdkVersion 15
+        minSdkVersion 8
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -14,13 +14,61 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+//  签名
+    signingConfigs{
+        debugConfig{
+            storeFile file("../AndroidLearn")//签名文件的位置
+            storePassword "123456"           //签名密码
+            keyAlias       "AndroidLearn"    //别名
+            keyPassword     "123456"         //别名密码
+        }
+
+        release{
+            storeFile file("../AndroidLearn")//签名文件的位置
+            storePassword "123456"           //签名密码
+            keyAlias      "AndroidLearn"     //别名
+            keyPassword   "123456"           //别名密码
         }
     }
+
+    buildTypes {
+        release {
+            //是否混淆
+            minifyEnabled false
+            //是否去除没用到的资源
+            shrinkResources false
+            //混淆文件位置:getDefaultProguardFile('proguard-android.txt')是sdk\tools\proguard\proguard-android.txt中的默认位置的混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//          自定义输出位置
+            applicationVariants.all{ variant->
+                variant.outputs.each{ output->
+                    def outputFile =output.outputFile
+                    if (outputFile!=null&&outputFile.name.endsWith('.apk')){
+                        def fileName="AndroidLearn_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile=new File(outputFile.parent,fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    productFlavors{
+        baidu{}
+        xiaomi{}
+        wandouji{}
+        pptv{}
+        anzhi{}
+    }
+
+    productFlavors.all{
+        flavor-> flavor.manifestPlaceholders=[ThemeLoveChannel:name]
+    }
+
 }
+
+
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
