@@ -47,8 +47,6 @@
     <style name="ToolBar_PopupOverflow" parent="@style/ThemeOverlay.AppCompat.Dark">
         <item name="android:textColorPrimary">@color/blue_green</item>
         <item name="android:textSize">@dimen/dp18</item>
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:dropDownHorizontalOffset">0dp</item>
-        <item name="android:dropDownVerticalOffset">?attr/actionBarSize</item>
+        <item name="android:background">@color/white</item>
     </style>
 </resources>

@@ -1,37 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp45"
-        android:gravity="center"
-        android:text="Toolbar测试"
-        android:textColor="#0000ff" />
+    android:orientation="vertical"
+    tools:context="com.themelove.androidlearn.main.MainActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        toolbar:title="aaaaa">
+        android:layout_height="?attr/actionBarSize"
+        toolbar:popupTheme="@style/ToolBar_PopupOverflow"
+        toolbar:theme="@style/AppDefault">
 
-        <TextView
+        <ImageView
+            android:id="@+id/iv_search"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="customView"
-            android:textColor="#ff0000" />
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_search" />
     </android.support.v7.widget.Toolbar>
 
-    <TextView
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp45"
-        android:gravity="center"
-        android:text="Toolbar测试"
-        android:textColor="#0000ff" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.themelove.androidlearn.main.PagerSlidingTab
+                android:id="@+id/pagerTab"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|start"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/ll_leftMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_menu_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp45"
+                    android:gravity="center"
+                    android:text="设置" />
+
+                <TextView
+                    android:id="@+id/tv_menu_dec"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp45"
+                    android:gravity="center"
+                    android:text="个性装扮"></TextView>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
 
