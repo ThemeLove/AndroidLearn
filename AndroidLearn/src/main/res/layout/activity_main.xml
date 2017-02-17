@@ -12,8 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        toolbar:popupTheme="@style/ToolBar_PopupOverflow"
-        toolbar:theme="@style/AppDefault">
+        toolbar:theme="@style/AppToolbarStyle">
 
         <ImageView
             android:id="@+id/iv_search"

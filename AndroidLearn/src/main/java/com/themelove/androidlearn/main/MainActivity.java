@@ -10,7 +10,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //      设置ActionBar不可用
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+
 //      设置全屏
 //      getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -57,8 +60,13 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         mFragments=new ArrayList();
         for (int i=1;i<10;i++){
-            HomeFragment homeFragment = new HomeFragment();
-            mFragments.add(homeFragment);
+            if (i%2==0){
+                HomeFragment homeFragment = new HomeFragment();
+                mFragments.add(homeFragment);
+            }else{
+                CaseFragment caseFragment = new CaseFragment();
+                mFragments.add(caseFragment);
+            }
         }
 //        HomeFragment homeFragment = new HomeFragment();
 //        CaseFragment caseFragment = new CaseFragment();
@@ -95,10 +103,11 @@ public class MainActivity extends AppCompatActivity {
         mToolbar.setSubtitleTextAppearance(MainActivity.this,R.style.ToolBar_SubTitle_Text);
         //用toolbar代替ActionBar,该句话的意思是，当你调用了setSupportActionBar()时，就是用toolBar替换了ActionBar，那么所有的
     //        原始回调都会走ActionBar的，所以如果你不重写onCreateOptionsMenu方法的话，Menu就不会出现。
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
+        mToolbar.inflateMenu(R.menu.menu_main);
+//        setSupportActionBar(mToolbar);
+/*        getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
 
 //      Drawer相关
@@ -125,6 +134,19 @@ public class MainActivity extends AppCompatActivity {
         mPagerTab.setViewPager(mPager);
 }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+//        getMenuInflater().inflate(R.menu.menu_main,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
     private void initViewTest() {
         //        设置导航图标

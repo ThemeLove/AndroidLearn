@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/bg_item_case"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/item_case"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@mipmap/ic_meinv"
+        android:gravity="center"
+        android:padding="10dp"
+        android:enabled="true"
+        android:textAllCaps="false"
+        android:text="PagerTabStrip最佳实战"
+        android:textColor="@color/red"
+        android:textSize="25dp" />
+</FrameLayout>
