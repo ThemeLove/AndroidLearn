@@ -12,4 +12,5 @@
     <dimen name="dp10">10dp</dimen>
     <dimen name="dp18">18dp</dimen>
     <dimen name="dp45">45dp</dimen>
+    <dimen name="dp100">100dp</dimen>
 </resources>

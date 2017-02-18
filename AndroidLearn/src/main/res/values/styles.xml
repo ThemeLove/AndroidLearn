@@ -23,17 +23,36 @@
     </style>
 
     <!--ThemeLove的App通用的style-->
-    <style name="AppThemeLove" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppThemeLove" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item  name="android:background">@color/colorPrimary</item>
     </style>
+
+    <style name="AppToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item  name="android:background">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:colorBackground">#aa333333</item>
+        <item name="actionOverflowMenuStyle">@style/ToolBar_PopupOverflow</item>
+        <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+    </style>
+
+    <!--修改toolbar菜单按钮的style-->
+    <style name="OverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@mipmap/ic_add</item>
+    </style>
+
 
     <!--ToolBar主标题的style-->
     <style name="ToolBar_Title_Text" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">@dimen/dp18</item>
         <item name="android:background">@color/green</item>
         <item name="android:textColor">@color/red</item>
+        <item name="overlapAnchor">false</item>
     </style>
 
     <!--ToolBar副标题的style-->
@@ -43,12 +62,13 @@
         <item name="android:textColor">@color/purple</item>
     </style>
 
-    <!--ToolBar的菜单style-->
-    <style name="ToolBar_PopupOverflow" parent="@style/ThemeOverlay.AppCompat.Dark">
-        <item name="android:textColorPrimary">@color/blue_green</item>
+    <!--ToolBar的menu的style-->
+    <style name="ToolBar_PopupOverflow" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/dp18</item>
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:dropDownHorizontalOffset">0dp</item>
-        <item name="android:dropDownVerticalOffset">?attr/actionBarSize</item>
+        <item name="android:background">@color/white</item>
+        <!--<item name="android:dropDownHorizontalOffset">0dp</item>-->
+        <!--<item name="android:dropDownVerticalOffset">@dimen/dp45</item>-->
+        <item name="overlapAnchor">false</item>
     </style>
 </resources>
