@@ -35,8 +35,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item  name="android:background">@color/colorPrimary</item>
-        <item name="android:textColorSecondary">#ffffff</item>
-        <item name="android:colorBackground">#aa333333</item>
+        <item name="android:colorBackground">@color/white</item>
         <item name="actionOverflowMenuStyle">@style/ToolBar_PopupOverflow</item>
         <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
     </style>
@@ -63,12 +62,30 @@
     </style>
 
     <!--ToolBar的menu的style-->
-    <style name="ToolBar_PopupOverflow" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
-        <item name="android:textColorPrimary">@color/colorPrimary</item>
+    <style name="ToolBar_PopupOverflow" parent="Widget.AppCompat.PopupMenu.Overflow">
+ <!--       <item name="android:textColorPrimary">@color/red</item>
         <item name="android:textSize">@dimen/dp18</item>
         <item name="android:background">@color/white</item>
-        <!--<item name="android:dropDownHorizontalOffset">0dp</item>-->
-        <!--<item name="android:dropDownVerticalOffset">@dimen/dp45</item>-->
+        &lt;!&ndash;<item name="android:dropDownHorizontalOffset">0dp</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:dropDownVerticalOffset">@dimen/dp45</item>&ndash;&gt;
+        <item name="overlapAnchor">false</item>-->
+
+        <!-- 是否覆盖锚点，默认为true，即盖住Toolbar -->
         <item name="overlapAnchor">false</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:background">#80000000</item>
+        <item name="android:colorBackground">#80000000</item>
+        <item name="android:textColorSecondary">#80000000</item>
+        <!-- 弹出层背景颜色 -->
+        <item name="android:popupBackground">#80000000</item>
+        <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
+        <item name="android:dropDownVerticalOffset">5dp</item>
+        <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
+        <item name="android:dropDownHorizontalOffset">0dp</item>
+        <!-- 设置弹出菜单文字颜色 -->
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textColorPrimary">#80000000</item>
     </style>
 </resources>

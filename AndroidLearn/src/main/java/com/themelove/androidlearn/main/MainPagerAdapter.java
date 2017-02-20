@@ -8,6 +8,8 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.util.Log;
+import android.view.ViewGroup;
 
 import com.themelove.androidlearn.Utils.BitmapUtil;
 
@@ -37,8 +39,16 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+
+        Log.i("创建了","fragment创建了"+position);
         if (mFragments==null) throw new RuntimeException("the is no fragment set");
         return mFragments.get(position);
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        Log.i("销毁了","fragment销毁了"+position);
+        super.destroyItem(container, position, object);
     }
 
     //通过构造含有图片的span来实现，带图片的标题

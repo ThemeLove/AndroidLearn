@@ -1,18 +1,16 @@
 package com.themelove.androidlearn.main;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +19,7 @@ import android.widget.Toast;
 
 import com.themelove.androidlearn.R;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         mToolbar.setSubtitleTextAppearance(MainActivity.this,R.style.ToolBar_SubTitle_Text);
         //用toolbar代替ActionBar,该句话的意思是，当你调用了setSupportActionBar()时，就是用toolBar替换了ActionBar，那么所有的
     //        原始回调都会走ActionBar的，所以如果你不重写onCreateOptionsMenu方法的话，Menu就不会出现。
-        mToolbar.inflateMenu(R.menu.menu_main);
-//        setSupportActionBar(mToolbar);
+//        mToolbar.inflateMenu(R.menu.menu_main);
+        setSupportActionBar(mToolbar);
 /*        getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
@@ -128,19 +127,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
 //      设置ViewPager的Adapter
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), mFragments, mMainTitles);
+//      设置ViewPager的预加载，当设置为0时，来实现屏蔽预加载，是不起作用的，因为源码中将在<1时，强制设置为1.
+//        mPager.setOffscreenPageLimit(2);
         mPager.setAdapter(mainPagerAdapter);
         mPagerTab.setViewPager(mPager);
 }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-//        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if(menu != null){
+            if(menu.getClass().getSimpleName().equals("MenuBuilder")){
+                try{
+                    Method m = menu.getClass().getDeclaredMethod(
+                            "setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                }
+                catch(NoSuchMethodException e){}
+                catch(Exception e){}
+            }
+        }
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override

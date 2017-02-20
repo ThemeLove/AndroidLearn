@@ -8,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -77,5 +78,24 @@ public class CaseFragment extends BaseFragment {
         CaseAdapter caseAdapter = new CaseAdapter(caseList);
         mRecyclerView.setAdapter(caseAdapter);
 
+    }
+
+    @Override
+    public void onResume() {
+//        setState(State.LOADING);
+//        refreshData();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("onDestroy","caseFragment");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i("onDestroyView","caseFragment");
     }
 }
