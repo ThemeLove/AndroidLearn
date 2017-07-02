@@ -1,5 +1,6 @@
 package com.themelove.androidlearn.main;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.themelove.androidlearn.AppBase.BaseFragment;
+import com.themelove.androidlearn.Case.TabLayout.TabLayoutActivity;
 import com.themelove.androidlearn.R;
 
 import java.util.ArrayList;
@@ -44,7 +46,6 @@ public class CaseFragment extends BaseFragment {
         SpaceItemDecoration spaceItemDecoration = new SpaceItemDecoration(5);
         mRecyclerView.addItemDecoration(spaceItemDecoration);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-
         return view;
     }
 
@@ -76,6 +77,13 @@ public class CaseFragment extends BaseFragment {
     public void setData() {
         setState(State.SUCCESS);
         CaseAdapter caseAdapter = new CaseAdapter(caseList);
+        caseAdapter.setOnItemClickListener(new CaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(int position) {
+                Intent intent = new Intent(getActivity(), TabLayoutActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         mRecyclerView.setAdapter(caseAdapter);
 
     }

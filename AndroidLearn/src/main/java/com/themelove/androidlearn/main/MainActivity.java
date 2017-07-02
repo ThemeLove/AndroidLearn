@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
 //      设置ViewPager的预加载，当设置为0时，来实现屏蔽预加载，是不起作用的，因为源码中将在<1时，强制设置为1.
 //        mPager.setOffscreenPageLimit(2);
         mPager.setAdapter(mainPagerAdapter);
+
         mPagerTab.setViewPager(mPager);
 }
     @Override

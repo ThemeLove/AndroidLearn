@@ -15,6 +15,7 @@ import java.util.List;
  */
 
 public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseViewHolder>{
+    private OnItemClickListener mOnItemClickListener;
     private List<CaseBean> caseList;
 
     public CaseAdapter(List<CaseBean> caseList){
@@ -29,7 +30,16 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseViewHolder
     }
 
     @Override
-    public void onBindViewHolder(CaseViewHolder holder, int position) {
+    public void onBindViewHolder(CaseViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if (mOnItemClickListener!=null){
+                    mOnItemClickListener.onItemClickListener(position);
+                }
+            }
+        });
         holder.textView.setText(caseList.get(position).getTitle());
         holder.textView.setBackgroundResource(caseList.get(position).getResId());
     }
@@ -47,5 +57,13 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseViewHolder
             super(itemView);
              textView =  (TextView) itemView.findViewById(R.id.item_case);
         }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClickListener(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        mOnItemClickListener=onItemClickListener;
     }
 }

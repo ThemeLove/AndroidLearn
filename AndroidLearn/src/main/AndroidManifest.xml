@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".Case.TabLayout.TabLayoutActivity"></activity>
         <meta-data
             android:name="ThemeLove"
             android:value="${ThemeLoveChannel}"
