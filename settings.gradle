@@ -1,5 +1,5 @@
 
-include ':AndroidLearn', ':audioplayer', ':customview'
+include ':AndroidLearn', ':audioplayer'
 
 include ':AndroidLearn', ':tablayoutsizedemo'
 
