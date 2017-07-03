@@ -3,7 +3,7 @@ package com.themelove.androidlearn.Utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.themelove.androidlearn.AppBase.ThemeLoveApplication;
+import com.themelove.androidlearn.AppBase.TLApplication;
 
 /**
  * Created by qingshanliao on 2017/2/16.
@@ -11,6 +11,6 @@ import com.themelove.androidlearn.AppBase.ThemeLoveApplication;
 
 public class BitmapUtil {
     public static Bitmap getBitmapFromRes(int resId) {
-        return BitmapFactory.decodeResource(ThemeLoveApplication.getApplication().getResources(), resId);
+        return BitmapFactory.decodeResource(TLApplication.getApplication().getResources(), resId);
     }
 }

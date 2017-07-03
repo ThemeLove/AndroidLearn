@@ -11,8 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.themelove.androidlearn.AppBase.BaseFragment;
-import com.themelove.androidlearn.Case.TabLayout.TabLayoutActivity;
+import com.themelove.androidlearn.AppBase.TLFragment;
 import com.themelove.androidlearn.R;
 import com.themelove.androidlearn.main.caseshow.CaseAdapter;
 import com.themelove.androidlearn.main.caseshow.SpaceItemDecoration;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
  * Created by qingshanliao on 2017/2/16.
  */
 
-public class CaseFragment extends BaseFragment {
+public class CaseFragment extends TLFragment {
 
     private ArrayList<CaseBean> caseList;
     private RecyclerView mRecyclerView;

@@ -1,5 +1,5 @@
 
-include ':AndroidLearn', ':audioplayer'
+include ':AndroidLearn'
 
-include ':AndroidLearn', ':tablayoutsizedemo'
+include ':AndroidLearn', ':TLCustomView'
 

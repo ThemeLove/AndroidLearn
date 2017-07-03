@@ -10,10 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.themelove.androidlearn.AppBase.BaseFragment;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import com.themelove.androidlearn.AppBase.TLFragment;
 
 /**
  * Created by qingshanliao on 2017/2/16.
@@ -22,7 +19,7 @@ import java.util.TimerTask;
 /**
  * 首页Fragment
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends TLFragment {
     TextView textView;
     @Override
     public View initView() {
