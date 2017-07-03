@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.main;
+package com.themelove.androidlearn.main.home.UI;
 
 import android.graphics.Color;
 import android.os.Handler;

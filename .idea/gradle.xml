@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AndroidLearn" />
+            <option value="$PROJECT_DIR$/audioplayer" />
+            <option value="$PROJECT_DIR$/customview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,18 +1,21 @@
-package com.themelove.androidlearn.main;
+package com.themelove.androidlearn.main.caseshow.UI;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.themelove.androidlearn.AppBase.BaseFragment;
 import com.themelove.androidlearn.R;
+import com.themelove.androidlearn.main.caseshow.CaseAdapter;
+import com.themelove.androidlearn.main.caseshow.SpaceItemDecoration;
+import com.themelove.androidlearn.main.caseshow.bean.CaseBean;
+import com.themelove.androidlearn.main.caseshow.model.CaseModel;
 
 import java.util.ArrayList;
 
@@ -39,7 +42,7 @@ public class CaseFragment extends BaseFragment {
             }
         });
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         SpaceItemDecoration spaceItemDecoration = new SpaceItemDecoration(5);
         mRecyclerView.addItemDecoration(spaceItemDecoration);
         mRecyclerView.setLayoutManager(gridLayoutManager);
@@ -57,11 +60,7 @@ public class CaseFragment extends BaseFragment {
                 listener.onLoadResult();
             }
         };
-        caseList = new ArrayList<CaseBean>();
-        for (int i=0;i<30;i++){
-            CaseBean caseBean = new CaseBean("PagerTabStrip最佳实战" + i, R.drawable.bg_item_case);
-            caseList.add(caseBean);
-        }
+        caseList = (ArrayList<CaseBean>) CaseModel.getInstance().getCaseList();
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -75,7 +74,18 @@ public class CaseFragment extends BaseFragment {
     public void setData() {
         setState(State.SUCCESS);
         CaseAdapter caseAdapter = new CaseAdapter(caseList);
-        mRecyclerView.setAdapter(caseAdapter);
+        caseAdapter.setOnItemClickListener(new CaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(CaseBean bean) {
+                try {
+                    Intent intent = new Intent(getActivity(), Class.forName(bean.getToClass()));
+                    startActivity(intent);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
 
+        });
+        mRecyclerView.setAdapter(caseAdapter);
     }
 }

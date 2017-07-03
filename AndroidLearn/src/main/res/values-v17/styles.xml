@@ -1,0 +1,63 @@
+<resources>
+
+    <!--该style对应API LEVEL 17,因为海马模拟器是API17的-->
+
+    <!--ToolbarActivity的style-->
+    <style name="AppDefault" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!--Toolbar的style-->
+    <style name="ToolbarStyle" parent="Theme.AppCompat">
+        <!--状态栏的背景颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--ActionBar的默认背景颜色，（但不是Toolbar）-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--EditText,CheckBox等widget选中状态时的颜色-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/colorPrimary</item>
+
+        <!--actionOverflowMenuStyle的配置为Toolbar菜单样式，一般要在这里配置一下，同时也要在Toolbar的xml中配置popupTheme属性
+        ，如果不在xml中配置，toolbar的整体style会影响溢出菜单的样式，比如背景，同时配置了以后，自定义的溢出菜单样式才会生效。
+        -->
+        <item name="actionOverflowMenuStyle">@style/ToolBarPopupOverflow</item>
+        <!--<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>-->
+    </style>
+
+    <!--Toolbar  Title的style-->
+    <style name="ToolBarTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/dp18</item>
+        <item name="android:background">@color/green</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <!--Toolbar  SubTitle的style-->
+    <style name="ToolBarSubTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">@dimen/dp10</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+
+    <!--toolbar菜单按钮的style:默认三个点-->
+    <style name="OverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@mipmap/ic_add</item>
+    </style>
+
+    !--ToolBar的溢出menu的style-->
+    <style name="ToolBarPopupOverflow" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textSize">@dimen/dp18</item>
+        <item name="android:background">#80000000</item>
+        <!--<item name="android:dropDownHorizontalOffset">0dp</item>-->
+        <!--<item name="android:dropDownVerticalOffset">@dimen/dp45</item>-->
+
+        <!--overlapAnchor为false表示溢出菜单位置在Toolbar的下边显示-->
+        <item name="overlapAnchor">false</item>
+    </style>
+</resources>

@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity"
     >
-    <item android:id="@+id/menu_settings"
-        android:checkable="true"
-        android:orderInCategory="100"
-        android:visible="true"
-        android:title="设置"
-        app:showAsAction="never"
-        app:icon="@mipmap/ic_setting"
-        android:icon="@mipmap/ic_setting"
-        />
     <item android:id="@+id/menu_share"
-        android:checkable="true"
-        android:orderInCategory="100"
-        android:visible="true"
+        android:orderInCategory="1"
         android:title="分享"
-        app:showAsAction="always"
-        app:icon="@mipmap/ic_share"
+        toolbar:showAsAction="always"
+        toolbar:icon="@mipmap/ic_share"
         android:icon="@mipmap/ic_share"
+        />
+    <item android:id="@+id/menu_settings"
+        android:orderInCategory="2"
+        android:title="设置"
+        toolbar:showAsAction="never"
+        android:checked="true"
+        toolbar:icon="@mipmap/ic_setting"
+        android:icon="@mipmap/ic_setting"
         />
 </menu>

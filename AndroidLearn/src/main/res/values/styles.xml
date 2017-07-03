@@ -30,11 +30,11 @@
         <item  name="android:background">@color/colorPrimary</item>
     </style>
 
-    <style name="AppToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark">
+    <style name="AppToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item  name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColorSecondary">#ffffff</item>
         <item name="android:colorBackground">#aa333333</item>
         <item name="actionOverflowMenuStyle">@style/ToolBar_PopupOverflow</item>

@@ -12,7 +12,9 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        toolbar:theme="@style/AppToolbarStyle">
+        toolbar:theme="@style/AppToolbarStyle"
+        toolbar:popupTheme="@style/ToolBar_PopupOverflow"
+        >
 
         <ImageView
             android:id="@+id/iv_search"
@@ -66,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp45"
                     android:gravity="center"
-                    android:text="个性装扮"></TextView>
+                    android:text="个性装扮"/>
             </LinearLayout>
         </ScrollView>
     </android.support.v4.widget.DrawerLayout>

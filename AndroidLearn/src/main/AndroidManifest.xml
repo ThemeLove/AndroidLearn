@@ -17,13 +17,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Case.appbar.UI.ToolBarActivity"
+            android:theme="@style/AppDefault" />
+        <activity android:name=".Case.progressbar.ProgressBarTestActivity"
+            android:theme="@style/AppDefault">
+        </activity>
+        <activity android:name=".media.AudioActivity"
+            android:theme="@style/AppDefault">
+        </activity>
+        <activity android:name=".Case.PagerTab.PagerTabStripActivity"/>
 
         <meta-data
             android:name="ThemeLove"
-            android:value="${ThemeLoveChannel}"
-            />
+            android:value="${ThemeLoveChannel}" />
     </application>
-
 
 
 </manifest>

@@ -32,6 +32,7 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public final View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        currentState=State.LOADING;
         ViewGroup viewContainer = (ViewGroup) inflater.inflate(R.layout.layout_container, container, false);
         emptyView = viewContainer.findViewById(R.id.layout_empty);
         loadingView = viewContainer.findViewById(R.id.layout_loading);

@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:background="@drawable/bg_item_case"
-    android:layout_height="wrap_content">
+    android:orientation="vertical"
+    android:layout_height="200dp">
 
-    <Button
+    <TextView
         android:layout_margin="10dp"
-        android:id="@+id/item_case"
+        android:id="@+id/case_title"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@mipmap/ic_meinv"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
         android:enabled="true"
+        android:background="#00000000"
+        android:clickable="false"
         android:textAllCaps="false"
         android:text="PagerTabStrip最佳实战"
         android:textColor="@color/red"
-        android:textSize="25dp" />
-</FrameLayout>
+        android:ellipsize="end"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/case_desc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="10dp"
+        android:padding="5dp"
+        android:text="(PagerTabStrip和ViewPager的使用)"
+        android:textColor="@color/blue"
+        android:gravity="center"
+        android:background="#00000000"
+        android:ellipsize="end"
+        />
+</LinearLayout>

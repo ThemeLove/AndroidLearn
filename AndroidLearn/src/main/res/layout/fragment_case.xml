@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
         android:padding="8dp"
-        android:background="#009966"
+        android:background="#ffffff"
         android:id="@+id/recylerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

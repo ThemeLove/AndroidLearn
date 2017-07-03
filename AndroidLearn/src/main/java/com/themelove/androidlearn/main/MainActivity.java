@@ -1,10 +1,8 @@
 package com.themelove.androidlearn.main;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.themelove.androidlearn.R;
+import com.themelove.androidlearn.main.caseshow.UI.CaseFragment;
+import com.themelove.androidlearn.main.home.UI.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         mToolbar.setSubtitleTextAppearance(MainActivity.this,R.style.ToolBar_SubTitle_Text);
         //用toolbar代替ActionBar,该句话的意思是，当你调用了setSupportActionBar()时，就是用toolBar替换了ActionBar，那么所有的
     //        原始回调都会走ActionBar的，所以如果你不重写onCreateOptionsMenu方法的话，Menu就不会出现。
-        mToolbar.inflateMenu(R.menu.menu_main);
-//        setSupportActionBar(mToolbar);
+//        mToolbar.inflateMenu(R.menu.menu_main);
+        setSupportActionBar(mToolbar);
 /*        getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
@@ -135,10 +134,22 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
+    /**
+     * 每次创建的时候都重新创建一个菜单，会叠加，所以，一般要在该方法之前做清楚之前的菜单。
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+//        menu.clear();
+//        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-//        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
 
         return super.onCreateOptionsMenu(menu);
     }

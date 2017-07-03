@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto">
+<!--
+   属性说明：
+    icon:图标
+    title:文字标题
+    showAsAction:显示在toolbar的规则：always(一直显示在Toolbar上);ifRoom(有空间才显示在Toolbar上，空间不够时显示在溢出菜单里);
+        never(一直显示在溢出菜单里);withText(显示标题);
+    orderInCategory：在menu中的位置
+    -->
+    <item
+        android:id="@+id/menu_item1"
+        android:icon="@mipmap/ic_share"
+        android:showAsAction="always"
+        android:orderInCategory="1"
+        android:title="menu_item"
+        toolbar:showAsAction="always">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/menu_item1_subitem1"
+                    android:icon="@mipmap/ic_share"
+                    android:title="子菜单1" />
+                <item
+                    android:id="@+id/menu_item1_subitem2"
+                    android:icon="@mipmap/ic_share"
+                    android:title="子菜单2" />
+                <item
+                    android:id="@+id/menu_item1_subitem3"
+                    android:icon="@mipmap/ic_share"
+                    android:title="子菜单3" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menu_item2"
+        android:orderInCategory="2"
+        android:icon="@mipmap/ic_setting"
+        android:showAsAction="never"
+        android:title="menu_item2"
+        toolbar:showAsAction="never"></item>
+    <item
+        android:id="@+id/menu_item3"
+        android:orderInCategory="3"
+        android:icon="@mipmap/ic_setting"
+        android:showAsAction="never"
+        android:title="menu_item3"
+        toolbar:showAsAction="never"></item>
+    <item
+        android:id="@+id/menu_item4"
+        android:orderInCategory="4"
+        android:icon="@mipmap/ic_setting"
+        android:showAsAction="never"
+        android:title="menu_item4"
+        toolbar:showAsAction="never"></item>
+</menu>

@@ -62,18 +62,36 @@ public class AudioAdapter extends BaseAdapter{
             convertView=mInflater.inflate(R.layout.item_voice,parent,false);
             holder.mRlVoice= (RelativeLayout) convertView.findViewById(R.id.rl_voice);
             holder.mDuration= (TextView) convertView.findViewById(R.id.tv_duration);
+            holder.mVoiceIv= (ImageView) convertView.findViewById(R.id.iv_voice);
             convertView.setTag(holder);
         }
         holder= (ViewHolder) convertView.getTag();
         AudioState audioState = audioBean.getAudioState();
+        holder.mVoiceIv.setBackgroundResource(R.drawable.voice_anim);
+        AnimationDrawable anim = (AnimationDrawable) holder.mVoiceIv.getBackground();
 
         if (audioState== AudioState.inited){
             holder.mDuration.setText("初始化状态");
+            if(anim.isRunning()){
+                anim.stop();
+                anim.selectDrawable(0);
+            }
         }else if(audioState== AudioState.started){
+//            if (!anim.isRunning()){
+//                anim.start();
+//            }
+            anim.run();
             holder.mDuration.setText("正在播放");
         }else if(audioState== AudioState.paused){
+            if(anim.isRunning()){
+                anim.stop();
+            }
             holder.mDuration.setText("暂停状态");
         }else if(audioState== AudioState.stopped){
+            if(anim.isRunning()){
+                anim.stop();
+                anim.selectDrawable(0);
+            }
             holder.mDuration.setText("播放完成");
         }
 
@@ -93,7 +111,7 @@ public class AudioAdapter extends BaseAdapter{
         private AudioBean mAudioBean;
         private AudioPlayer mPlayer;
         private RelativeLayout mRlVoice;
-        private ImageView mPlayBtn;
+        private ImageView mVoiceIv;
         private TextView  mDuration;
         private AnimationDrawable anim;
     }
