@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class AudioActivity extends AppCompatActivity {
 
     private List<AudioBean> mAudioBeanList;
@@ -20,7 +21,6 @@ public class AudioActivity extends AppCompatActivity {
     private AudioPlayer mPlayer;
     private AudioBean currentAudioBean;//当前正在播放的音乐对应的AudioBean
     private AudioAdapter audioAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class AudioActivity extends AppCompatActivity {
         for (int i=0;i<=40;i++){
             mAudioBeanList.add(new AudioBean(url, AudioState.inited));
         }
+
          mPlayer = new AudioPlayer();
 
         //准备完毕监听
@@ -79,6 +80,7 @@ public class AudioActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 
     private void initView() {

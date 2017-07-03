@@ -17,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Case.appbar.UI.ToolBarActivity"
             android:theme="@style/AppDefault" />
@@ -27,6 +28,9 @@
             android:theme="@style/AppDefault">
         </activity>
         <activity android:name=".Case.PagerTab.PagerTabStripActivity"/>
+
+
+        <activity android:name=".Case.TabLayout.TabLayoutActivity"></activity>
 
         <meta-data
             android:name="ThemeLove"

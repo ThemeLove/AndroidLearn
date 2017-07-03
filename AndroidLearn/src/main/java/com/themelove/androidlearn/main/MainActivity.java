@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import com.themelove.androidlearn.R;
 import com.themelove.androidlearn.main.caseshow.UI.CaseFragment;
 import com.themelove.androidlearn.main.home.UI.HomeFragment;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -127,11 +129,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
 //      设置ViewPager的Adapter
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), mFragments, mMainTitles);
+//      设置ViewPager的预加载，当设置为0时，来实现屏蔽预加载，是不起作用的，因为源码中将在<1时，强制设置为1.
+//        mPager.setOffscreenPageLimit(2);
         mPager.setAdapter(mainPagerAdapter);
+
         mPagerTab.setViewPager(mPager);
 }
+
 
 
     /**
@@ -145,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
 //        getMenuInflater().inflate(R.menu.menu_main,menu);
         return super.onPrepareOptionsMenu(menu);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -153,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TabLayoutSizeDemo</string>
+    
+    <string-array name="draw_cases_titles">
+        <item>"概述及几何图形绘制"</item>
+    </string-array>
+
+    <string-array name="draw_cases_descs">
+        <item>"常见集合图形的绘制及原理"</item>
+    </string-array>
+
+</resources>

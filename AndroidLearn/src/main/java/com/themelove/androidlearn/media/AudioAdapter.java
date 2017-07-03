@@ -65,6 +65,7 @@ public class AudioAdapter extends BaseAdapter{
             holder.mVoiceIv= (ImageView) convertView.findViewById(R.id.iv_voice);
             convertView.setTag(holder);
         }
+
         holder= (ViewHolder) convertView.getTag();
         AudioState audioState = audioBean.getAudioState();
         holder.mVoiceIv.setBackgroundResource(R.drawable.voice_anim);

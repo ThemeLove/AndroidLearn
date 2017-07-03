@@ -7,10 +7,12 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.themelove.androidlearn.AppBase.BaseFragment;
+import com.themelove.androidlearn.Case.TabLayout.TabLayoutActivity;
 import com.themelove.androidlearn.R;
 import com.themelove.androidlearn.main.caseshow.CaseAdapter;
 import com.themelove.androidlearn.main.caseshow.SpaceItemDecoration;
@@ -46,7 +48,6 @@ public class CaseFragment extends BaseFragment {
         SpaceItemDecoration spaceItemDecoration = new SpaceItemDecoration(5);
         mRecyclerView.addItemDecoration(spaceItemDecoration);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-
         return view;
     }
 
@@ -76,6 +77,7 @@ public class CaseFragment extends BaseFragment {
         CaseAdapter caseAdapter = new CaseAdapter(caseList);
         caseAdapter.setOnItemClickListener(new CaseAdapter.OnItemClickListener() {
             @Override
+
             public void onItemClickListener(CaseBean bean) {
                 try {
                     Intent intent = new Intent(getActivity(), Class.forName(bean.getToClass()));
@@ -85,7 +87,27 @@ public class CaseFragment extends BaseFragment {
                 }
             }
 
+
         });
         mRecyclerView.setAdapter(caseAdapter);
+    }
+
+    @Override
+    public void onResume() {
+//        setState(State.LOADING);
+//        refreshData();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("onDestroy","caseFragment");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i("onDestroyView","caseFragment");
     }
 }

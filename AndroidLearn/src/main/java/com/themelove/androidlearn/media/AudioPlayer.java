@@ -1,3 +1,4 @@
+
 package com.themelove.androidlearn.media;
 
 import android.media.AudioManager;
@@ -5,7 +6,12 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
 
-import java.io.IOException;
+        import android.media.AudioManager;
+        import android.media.MediaPlayer;
+        import android.media.MediaPlayer.OnCompletionListener;
+        import android.media.MediaPlayer.OnPreparedListener;
+
+        import java.io.IOException;
 
 /**
  * 语音播放
@@ -177,3 +183,4 @@ public class AudioPlayer implements OnPreparedListener {
     }
 
 }
+

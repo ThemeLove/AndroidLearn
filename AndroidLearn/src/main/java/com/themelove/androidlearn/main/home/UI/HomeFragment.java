@@ -2,15 +2,18 @@ package com.themelove.androidlearn.main.home.UI;
 
 import android.graphics.Color;
 import android.os.Handler;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.themelove.androidlearn.AppBase.BaseFragment;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by qingshanliao on 2017/2/16.
@@ -35,6 +38,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void initData(final LoadingListener listener) {
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -53,5 +57,18 @@ public class HomeFragment extends BaseFragment {
     public void setData() {
             setState(State.ERROR);
             textView.setText("首页");
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("onDestroy","HomeFragment");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i("onDestroyView","HomeFragment");
     }
 }
