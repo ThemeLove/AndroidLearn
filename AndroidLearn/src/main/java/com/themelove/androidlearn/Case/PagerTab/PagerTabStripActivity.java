@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.Case.PagerTab;
+package com.themelove.androidlearn.Case.pagertab;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.themelove.androidlearn.AppBase.Title;
+import com.themelove.androidlearn.base.Title;
 import com.themelove.androidlearn.R;
 
 import java.util.ArrayList;

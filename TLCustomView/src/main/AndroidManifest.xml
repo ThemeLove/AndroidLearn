@@ -2,15 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.themelove.tlcostomview">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application android:allowBackup="true" android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name" android:supportsRtl="true" android:theme="@style/AppDefault">
     <activity
-        android:name="com.themelove.tlcostomview.main.MainTabLayoutActivity"
+        android:name="com.themelove.tlcostomview.main.MainActivity"
         android:theme="@style/AppDefault">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
+        <activity android:name=".base.activity.TLWebViewActivity"></activity>
+        <activity android:name=".Case.draw.drawone.DrawOneTestActivity"></activity>
     </application>
 </manifest>

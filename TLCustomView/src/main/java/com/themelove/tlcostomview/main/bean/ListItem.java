@@ -1,4 +1,4 @@
-package com.themelove.tlcostomview.main.adapter;
+package com.themelove.tlcostomview.main.bean;
 
 /**
  * Created by lqs on 2017/7/2.

@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.main.caseshow;
+package com.themelove.androidlearn.main.caseshow.ui;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +7,6 @@ import android.view.View;
 /**
  * Created by qingshanliao on 2017/2/17.
  */
-
-
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     private int space;
@@ -23,9 +21,8 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         outRect.left = space;
         outRect.bottom = space;
         //由于每行都只有3个，所以第一个都是3的倍数，把左边距设为0
-        if (parent.getChildLayoutPosition(view) % 3 == 0) {
+/*        if (parent.getChildLayoutPosition(view) % 3 == 0) {
             outRect.left = 0;
-        }
+        }*/
     }
-
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Created by lqs on 2017/6/8.
  */
 
-public class MainTabLayoutActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Fragment> mFragmentList;
     private String[] mTitles;

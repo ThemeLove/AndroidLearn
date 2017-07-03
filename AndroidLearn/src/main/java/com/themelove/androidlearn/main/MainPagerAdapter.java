@@ -11,7 +11,7 @@ import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.ViewGroup;
 
-import com.themelove.androidlearn.Utils.BitmapUtil;
+import com.themelove.androidlearn.utils.BitmapUtil;
 
 import java.util.List;
 

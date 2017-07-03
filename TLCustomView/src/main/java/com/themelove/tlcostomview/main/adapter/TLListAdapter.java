@@ -3,6 +3,7 @@ package com.themelove.tlcostomview.main.adapter;
 import android.view.ViewGroup;
 
 import com.themelove.tlcostomview.base.adapter.TLBaseAdapter;
+import com.themelove.tlcostomview.main.bean.ListItem;
 
 import java.util.List;
 

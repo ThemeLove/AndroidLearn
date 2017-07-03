@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TabLayoutSizeDemo</string>
+    <string name="app_name">TLCustomView</string>
     
     <string-array name="draw_cases_titles">
         <item>"概述及几何图形绘制"</item>

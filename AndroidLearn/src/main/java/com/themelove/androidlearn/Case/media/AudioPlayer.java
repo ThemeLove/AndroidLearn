@@ -1,17 +1,12 @@
 
-package com.themelove.androidlearn.media;
+package com.themelove.androidlearn.Case.media;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
 
-        import android.media.AudioManager;
-        import android.media.MediaPlayer;
-        import android.media.MediaPlayer.OnCompletionListener;
-        import android.media.MediaPlayer.OnPreparedListener;
-
-        import java.io.IOException;
+import java.io.IOException;
 
 /**
  * 语音播放

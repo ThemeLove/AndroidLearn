@@ -35,16 +35,16 @@ public class CaseModel{
 
         mCaseDescs=new String[]{
                 "（ToolBar的详细使用）",
+                "（PagerTabStrip和ViewPager的结合使用）",
                 "（自定义ProgressBar下载进度条）",
-                "（ListView中播放音频和帧动画结合使用）",
-                "（PagerTabStrip和ViewPager的结合使用）"
+                "（ListView中播放音频和帧动画结合使用）"
         };
 
         mCaseActions=new String[]{
                 "com.themelove.androidlearn.Case.appbar.UI.ToolBarActivity",
+                "com.themelove.androidlearn.Case.PagerTab.PagerTabStripActivity",
                 "com.themelove.androidlearn.Case.progressbar.ProgressBarTestActivity",
-                "com.themelove.androidlearn.media.AudioActivity",
-                "com.themelove.androidlearn.Case.PagerTab.PagerTabStripActivity"
+                "com.themelove.androidlearn.Case.media.AudioActivity"
         };
     }
 

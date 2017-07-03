@@ -4,7 +4,7 @@ package com.themelove.androidlearn.main;
  * Created by qingshanliao on 2017/2/16.
  */
 
-import com.themelove.androidlearn.AppBase.Title;
+import com.themelove.androidlearn.base.Title;
 
 /**
  * 封装Title的JavaBean

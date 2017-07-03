@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.Utils;
+package com.themelove.androidlearn.utils;
 
 /**
  * Created by qingshanliao on 2017/2/16.

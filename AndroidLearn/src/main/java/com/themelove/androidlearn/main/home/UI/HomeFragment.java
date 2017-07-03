@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.main.home.UI;
+package com.themelove.androidlearn.main.home.ui;
 
 import android.graphics.Color;
 import android.os.Handler;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.themelove.androidlearn.AppBase.TLFragment;
+import com.themelove.androidlearn.base.TLFragment;
 
 /**
  * Created by qingshanliao on 2017/2/16.

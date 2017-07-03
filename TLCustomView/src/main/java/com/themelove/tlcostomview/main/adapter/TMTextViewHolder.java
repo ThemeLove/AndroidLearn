@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.themelove.tlcostomview.R;
 import com.themelove.tlcostomview.base.adapter.TLViewHolder;
+import com.themelove.tlcostomview.main.bean.ListItem;
 
 import java.util.List;
 
@@ -15,33 +16,34 @@ import java.util.List;
  */
 
 public class TMTextViewHolder extends TLViewHolder {
-    private OnItemClickListener  mItemClickListener;
-    private List<ListItem>       mListItems;
-    private TextView             mTitle;
-    private TextView             mSubTitle;
+    private OnItemClickListener mItemClickListener;
+    private List<ListItem> mListItems;
+    private TextView mTitle;
+    private TextView mSubTitle;
 
-    public TMTextViewHolder(Context context, OnItemClickListener itemClickListener, List<ListItem> listItems){
+    public TMTextViewHolder(Context context, OnItemClickListener itemClickListener, List<ListItem> listItems) {
         super(LayoutInflater.from(context).inflate(R.layout.item_tm_text, null, false));
-        mItemClickListener=itemClickListener;
-        mListItems=listItems;
+        mItemClickListener = itemClickListener;
+        mListItems = listItems;
         mTitle = (TextView) itemView.findViewById(R.id.item_tm_title);
         mSubTitle = (TextView) itemView.findViewById(R.id.item_tm_sub_title);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClick(getAdapterPosition());
+                }
+            }
+        });
     }
 
     @Override
     public void setData() {
-        if (mListItems!=null&&mListItems.size()>0){
+        if (mListItems != null && mListItems.size() > 0) {
             mTitle.setText(mListItems.get(getAdapterPosition()).getTitle());
             mSubTitle.setText(mListItems.get(getAdapterPosition()).getSubTitle());
         }
-        itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mItemClickListener!=null){
-                        mItemClickListener.onItemClick(getAdapterPosition());
-                    }
-                }
-            });
-        }
     }
+}
 

@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.main.caseshow.UI;
+package com.themelove.androidlearn.main.caseshow.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,10 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.themelove.androidlearn.AppBase.TLFragment;
+import com.themelove.androidlearn.base.TLFragment;
 import com.themelove.androidlearn.R;
-import com.themelove.androidlearn.main.caseshow.CaseAdapter;
-import com.themelove.androidlearn.main.caseshow.SpaceItemDecoration;
 import com.themelove.androidlearn.main.caseshow.bean.CaseBean;
 import com.themelove.androidlearn.main.caseshow.model.CaseModel;
 

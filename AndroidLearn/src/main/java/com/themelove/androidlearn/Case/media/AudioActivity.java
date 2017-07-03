@@ -1,11 +1,10 @@
-package com.themelove.androidlearn.media;
+package com.themelove.androidlearn.Case.media;
 
 import android.app.ActionBar;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.themelove.androidlearn.R;
 

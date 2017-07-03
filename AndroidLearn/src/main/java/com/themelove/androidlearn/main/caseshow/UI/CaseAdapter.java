@@ -1,10 +1,9 @@
-package com.themelove.androidlearn.main.caseshow;
+package com.themelove.androidlearn.main.caseshow.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.themelove.androidlearn.R;
@@ -31,7 +30,6 @@ public class CaseAdapter extends RecyclerView.Adapter<CaseAdapter.CaseViewHolder
     public interface OnItemClickListener{
         void onItemClickListener(CaseBean bean);
     }
-
 
     public CaseAdapter(List<CaseBean> caseList){
         this.caseList=caseList;

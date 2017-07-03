@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.Case.TabLayout;
+package com.themelove.androidlearn.Case.tablayout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,11 +6,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.themelove.androidlearn.R;
-import com.themelove.androidlearn.main.CaseFragment;
-import com.themelove.androidlearn.main.HomeFragment;
+import com.themelove.androidlearn.main.caseshow.ui.CaseFragment;
+import com.themelove.androidlearn.main.home.ui.HomeFragment;
 
 import java.util.ArrayList;
 

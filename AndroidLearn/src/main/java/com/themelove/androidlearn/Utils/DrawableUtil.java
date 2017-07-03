@@ -1,9 +1,9 @@
-package com.themelove.androidlearn.Utils;
+package com.themelove.androidlearn.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.themelove.androidlearn.AppBase.TLApplication;
+import com.themelove.androidlearn.base.TLApplication;
 
 /**
  * Created by qingshanliao on 2017/2/16.

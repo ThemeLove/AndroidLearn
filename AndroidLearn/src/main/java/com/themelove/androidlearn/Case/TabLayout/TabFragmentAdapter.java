@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.Case.TabLayout;
+package com.themelove.androidlearn.Case.tablayout;
 
 import android.graphics.Color;
 import android.support.v4.app.Fragment;

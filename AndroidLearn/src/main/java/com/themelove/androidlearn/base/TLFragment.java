@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.AppBase;
+package com.themelove.androidlearn.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

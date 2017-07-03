@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.Case.PagerTab;
+package com.themelove.androidlearn.Case.pagertab;
 
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
@@ -9,9 +9,9 @@ import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.themelove.androidlearn.AppBase.Title;
+import com.themelove.androidlearn.base.Title;
 import com.themelove.androidlearn.R;
-import com.themelove.androidlearn.Utils.BitmapUtil;
+import com.themelove.androidlearn.utils.BitmapUtil;
 
 import java.util.List;
 

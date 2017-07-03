@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,10 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.themelove.androidlearn.R;
-import com.themelove.androidlearn.main.caseshow.UI.CaseFragment;
-import com.themelove.androidlearn.main.home.UI.HomeFragment;
+import com.themelove.androidlearn.main.caseshow.ui.CaseFragment;
+import com.themelove.androidlearn.main.home.ui.HomeFragment;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,18 +28,18 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private List<Fragment> mFragments;
+    private List<Fragment>  mFragments;
     private List<MainTitle> mMainTitles;
 
-    private Toolbar mToolbar;
-    private DrawerLayout mDrawer;
-    private ViewPager mPager;
+    private Toolbar         mToolbar;
+    private DrawerLayout    mDrawer;
+    private ViewPager       mPager;
     private PagerSlidingTab mPagerTab;
-    private LinearLayout mLeftMenu;
-    private TextView mMenuSettings;
-    private TextView mMenuDec;
-    private ImageView mIvSearch;
-    private ImageView mSearch;
+    private LinearLayout    mLeftMenu;
+    private TextView        mMenuSettings;
+    private TextView        mMenuDec;
+    private ImageView       mIvSearch;
+    private ImageView       mSearch;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

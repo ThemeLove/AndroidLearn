@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.AppBase;
+package com.themelove.androidlearn.base;
 
 /**
  * Created by qingshanliao on 2017/2/16.

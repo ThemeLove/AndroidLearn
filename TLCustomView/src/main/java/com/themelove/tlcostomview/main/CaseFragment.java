@@ -1,5 +1,6 @@
 package com.themelove.tlcostomview.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.themelove.tlcostomview.Case.draw.drawone.DrawOneTestActivity;
 import com.themelove.tlcostomview.R;
-import com.themelove.tlcostomview.main.adapter.ListItem;
+import com.themelove.tlcostomview.main.bean.ListItem;
 import com.themelove.tlcostomview.main.adapter.ListRecyclerCardItemDecoration;
 import com.themelove.tlcostomview.main.adapter.OnItemClickListener;
 import com.themelove.tlcostomview.main.adapter.TLListAdapter;
@@ -83,7 +85,16 @@ public class CaseFragment extends Fragment {
 
         @Override
         public void onItemClick(int position) {
+            Intent intent = new Intent();
+            switch (position){
+                case 0:
+                    intent.setClass(getActivity(), DrawOneTestActivity.class);
+                    break;
+                default:
 
+                    break;
+            }
+            startActivity(intent);
         }
     };
 

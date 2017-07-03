@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/drawoneContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.themelove.tlcostomview.Case.draw.drawone.CircleView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+
+        <com.themelove.tlcostomview.Case.draw.drawone.PointView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        
+        <com.themelove.tlcostomview.Case.draw.drawone.LineView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+
+        <com.themelove.tlcostomview.Case.draw.drawone.RectView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawone.RoundRectView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawone.OvalView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawone.ArcView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+    </LinearLayout>
+</ScrollView>
