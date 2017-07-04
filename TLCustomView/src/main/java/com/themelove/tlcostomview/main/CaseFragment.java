@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.themelove.tlcostomview.Case.draw.drawone.DrawOneTestActivity;
+import com.themelove.tlcostomview.Case.draw.drawtwo.DrawTwoTestActivity;
 import com.themelove.tlcostomview.R;
 import com.themelove.tlcostomview.main.bean.ListItem;
 import com.themelove.tlcostomview.main.adapter.ListRecyclerCardItemDecoration;
@@ -89,6 +90,9 @@ public class CaseFragment extends Fragment {
             switch (position){
                 case 0:
                     intent.setClass(getActivity(), DrawOneTestActivity.class);
+                    break;
+                case 1:
+                    intent.setClass(getActivity(), DrawTwoTestActivity.class);
                     break;
                 default:
 

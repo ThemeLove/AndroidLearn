@@ -15,5 +15,6 @@
     </activity>
         <activity android:name=".base.activity.TLWebViewActivity"></activity>
         <activity android:name=".Case.draw.drawone.DrawOneTestActivity"></activity>
+        <activity android:name=".Case.draw.drawtwo.DrawTwoTestActivity"></activity>
     </application>
 </manifest>

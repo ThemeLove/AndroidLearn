@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.themelove.tlcostomview.Case.draw.drawtwo.TextView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawtwo.TextFILLView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawtwo.TextPositionView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawtwo.TextTypefaceView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawtwo.TextPathView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawtwo.CircleProcessBar
+            android:id="@+id/circleProcessBar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+        <com.themelove.tlcostomview.Case.draw.drawtwo.TextPathArcView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+    </LinearLayout>
+</ScrollView>
