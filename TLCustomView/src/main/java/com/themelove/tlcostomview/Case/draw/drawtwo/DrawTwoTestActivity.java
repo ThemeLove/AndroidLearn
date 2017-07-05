@@ -16,8 +16,7 @@ import java.util.TimerTask;
  * Created by qingshanliao on 2017/7/4.
  */
 public class DrawTwoTestActivity extends TLCaseActivity {
-    private String mBlogOfGod="";
-    private String mBlogOfMy ="";
+    private String mBlogOfGod="http://blog.csdn.net/harvic880925/article/details/38926877";
     private String mNormalApi="";
 
     private int process=0;

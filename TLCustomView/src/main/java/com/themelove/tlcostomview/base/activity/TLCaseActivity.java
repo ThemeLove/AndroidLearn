@@ -14,8 +14,9 @@ import com.themelove.tlcostomview.R;
 
 public abstract class TLCaseActivity extends AppCompatActivity {
 
-
-
+    public  String mBlogOfGod = "http://blog.csdn.net/harvic880925/article/details/38875149";
+    public  String mBlogOfMy  = "http://blog.csdn.net/themelove";
+    public  String mNormalApi = "";
 
     public void showMessageDialog(CharSequence title,CharSequence message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

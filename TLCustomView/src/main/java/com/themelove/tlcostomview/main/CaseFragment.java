@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.themelove.tlcostomview.Case.draw.drawfour.DrawFourTestActivity;
 import com.themelove.tlcostomview.Case.draw.drawone.DrawOneTestActivity;
+import com.themelove.tlcostomview.Case.draw.drawthree.DrawThreeTestActivity;
 import com.themelove.tlcostomview.Case.draw.drawtwo.DrawTwoTestActivity;
 import com.themelove.tlcostomview.R;
 import com.themelove.tlcostomview.main.bean.ListItem;
@@ -94,8 +96,13 @@ public class CaseFragment extends Fragment {
                 case 1:
                     intent.setClass(getActivity(), DrawTwoTestActivity.class);
                     break;
+                case 2:
+                    intent.setClass(getActivity(), DrawThreeTestActivity.class);
+                    break;
+                case 3:
+                    intent.setClass(getActivity(),DrawFourTestActivity.class);
+                    break;
                 default:
-
                     break;
             }
             startActivity(intent);

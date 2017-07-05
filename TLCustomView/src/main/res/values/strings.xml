@@ -4,11 +4,15 @@
     <string-array name="draw_cases_titles">
         <item>"概述及几何图形绘制"</item>
         <item>"文字和路径绘制"</item>
+        <item>"Region区域"</item>
+        <item>"Canvas的变幻与操作"</item>
     </string-array>
 
     <string-array name="draw_cases_descs">
         <item>"常见集合图形的绘制及原理"</item>
         <item>"Paint绘制文字的Api，Path和Canvas绘制路径Api"</item>
+        <item>"canvas绘制Region范围"</item>
+        <item>"canvas的translate、save、restore、栈的概念"</item>
     </string-array>
 
 </resources>
