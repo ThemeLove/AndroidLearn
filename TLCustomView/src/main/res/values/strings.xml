@@ -12,7 +12,7 @@
         <item>"常见集合图形的绘制及原理"</item>
         <item>"Paint绘制文字的Api，Path和Canvas绘制路径Api"</item>
         <item>"canvas绘制Region范围"</item>
-        <item>"canvas的translate、save、restore、栈的概念"</item>
+        <item>"canvas的translate、rotate、scale、skew、clip、save、restore、栈的概念"</item>
     </string-array>
 
 </resources>

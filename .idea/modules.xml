@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidLearn.iml" filepath="$PROJECT_DIR$/AndroidLearn.iml" />
       <module fileurl="file://$PROJECT_DIR$/AndroidLearn/AndroidLearn-AndroidLearn.iml" filepath="$PROJECT_DIR$/AndroidLearn/AndroidLearn-AndroidLearn.iml" />
       <module fileurl="file://$PROJECT_DIR$/TLCustomView/TLCustomView.iml" filepath="$PROJECT_DIR$/TLCustomView/TLCustomView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tablayoutsizedemo/tablayoutsizedemo.iml" filepath="$PROJECT_DIR$/tablayoutsizedemo/tablayoutsizedemo.iml" />
     </modules>
   </component>
 </project>

@@ -16,5 +16,17 @@
         <com.themelove.tlcostomview.Case.draw.drawfour.CanvasScaleView
             android:layout_width="match_parent"
             android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawfour.CanvasSkewView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawfour.CanvasClipView
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+        <com.themelove.tlcostomview.Case.draw.drawfour.CanvasSaveView
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
+        <com.themelove.tlcostomview.Case.draw.drawfour.CanvasRestoreView
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
     </LinearLayout>
 </ScrollView>
