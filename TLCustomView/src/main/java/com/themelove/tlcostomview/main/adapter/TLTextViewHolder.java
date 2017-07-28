@@ -15,13 +15,13 @@ import java.util.List;
  * Created by lqs on 2017/7/2.
  */
 
-public class TMTextViewHolder extends TLViewHolder {
+public class TLTextViewHolder extends TLViewHolder {
     private OnItemClickListener mItemClickListener;
     private List<ListItem> mListItems;
     private TextView mTitle;
     private TextView mSubTitle;
 
-    public TMTextViewHolder(Context context, OnItemClickListener itemClickListener, List<ListItem> listItems) {
+    public TLTextViewHolder(Context context, OnItemClickListener itemClickListener, List<ListItem> listItems) {
         super(LayoutInflater.from(context).inflate(R.layout.item_tm_text, null, false));
         mItemClickListener = itemClickListener;
         mListItems = listItems;

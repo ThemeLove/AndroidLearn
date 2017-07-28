@@ -2,10 +2,11 @@
     <string name="app_name">TLCustomView</string>
     
     <string-array name="draw_cases_titles">
-        <item>"概述及几何图形绘制"</item>
-        <item>"文字和路径绘制"</item>
-        <item>"Region区域"</item>
-        <item>"Canvas的变幻与操作"</item>
+        <item>"（一）概述及几何图形绘制"</item>
+        <item>"（二）文字和路径绘制"</item>
+        <item>"（三）Region区域"</item>
+        <item>"（四）Canvas的变幻与操作"</item>
+        <item>"（十八）BitmapShader与望远镜效果"</item>
     </string-array>
 
     <string-array name="draw_cases_descs">
@@ -13,6 +14,7 @@
         <item>"Paint绘制文字的Api，Path和Canvas绘制路径Api"</item>
         <item>"canvas绘制Region范围"</item>
         <item>"canvas的translate、rotate、scale、skew、clip、save、restore、栈的概念"</item>
+        <item>"Shader内部类TileMode及其子类BitmapShader的使用"</item>
     </string-array>
 
 </resources>

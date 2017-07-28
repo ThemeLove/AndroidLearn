@@ -10,8 +10,7 @@ import java.util.List;
 /**
  * Created by lqs on 2017/7/2.
  */
-
-public class TLListAdapter extends TLBaseAdapter<TMTextViewHolder> {
+public class TLListAdapter extends TLBaseAdapter<TLTextViewHolder> {
 
     private List<ListItem>       mListItems;
     private OnItemClickListener  mItemClickListener;
@@ -21,8 +20,8 @@ public class TLListAdapter extends TLBaseAdapter<TMTextViewHolder> {
     }
 
     @Override
-    public TMTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new TMTextViewHolder(parent.getContext(),mItemClickListener,mListItems);
+    public TLTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new TLTextViewHolder(parent.getContext(),mItemClickListener,mListItems);
     }
 
     @Override

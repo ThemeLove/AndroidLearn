@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.themelove.tlcostomview.Case.draw.draweighteen.DrawEighteenTestActivity;
 import com.themelove.tlcostomview.Case.draw.drawfour.DrawFourTestActivity;
 import com.themelove.tlcostomview.Case.draw.drawone.DrawOneTestActivity;
 import com.themelove.tlcostomview.Case.draw.drawthree.DrawThreeTestActivity;
@@ -27,7 +28,6 @@ import java.util.List;
 /**
  * Created by lqs on 2017/6/9.
  */
-
 public class CaseFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
@@ -100,8 +100,10 @@ public class CaseFragment extends Fragment {
                     intent.setClass(getActivity(), DrawThreeTestActivity.class);
                     break;
                 case 3:
-                    intent.setClass(getActivity(),DrawFourTestActivity.class);
+                    intent.setClass(getActivity(), DrawFourTestActivity.class);
                     break;
+                case 4:
+                    intent.setClass(getActivity(), DrawEighteenTestActivity.class);
                 default:
                     break;
             }

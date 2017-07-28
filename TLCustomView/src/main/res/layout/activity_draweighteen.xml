@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avatarView="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.themelove.tlcostomview.Case.draw.draweighteen.TelescopeView
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+                android:text="tileMode_REPEAT(x,y)" />
+
+            <com.themelove.tlcostomview.Case.draw.draweighteen.TileMode_REPEAT_View
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+                android:text="tileMode_MIRROR(x,y)" />
+
+            <com.themelove.tlcostomview.Case.draw.draweighteen.TileMode_MIRROR_View
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+                android:text="tileMode_CLAMP(x,y)" />
+
+            <com.themelove.tlcostomview.Case.draw.draweighteen.TileMode_CLAMP_View
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+            <com.themelove.tlcostomview.Case.draw.draweighteen.AvatarView
+                avatarView:src="@mipmap/ic_avatar"
+                avatarView:type="circle"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <com.themelove.tlcostomview.Case.draw.draweighteen.AvatarView
+                avatarView:src="@mipmap/ic_dog"
+                avatarView:type="round"
+                avatarView:round_radius="50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
