@@ -2,13 +2,18 @@ package com.themelove.androidlearn.Case.media;
 
 import android.app.ActionBar;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.themelove.androidlearn.R;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,15 +21,20 @@ import java.util.List;
 public class AudioActivity extends AppCompatActivity {
 
     private List<AudioBean> mAudioBeanList;
-    private String url="http://cuotiben-mp3.qiniudn.com/XYA07491.mp3";
+//    private String url="http://cuotiben-mp3.qiniudn.com/XYA07491.mp3";
+//    private String url="http://cuotiben-mp3.qiniudn.com/7%E6%9C%8824%E6%97%A5%2017%E7%82%B945%E5%88%86.mp3";
+//                        http://cuotiben-mp3.qiniudn.com/7%E6%9C%8824%E6%97%A5+17%E7%82%B945%E5%88%86.mp3
+//                        http://cuotiben-mp3.qiniudn.com/7%E6%9C%8824%E6%97%A5%2017%E7%82%B945%E5%88%86.mp3
+    private String url="http://cuotiben-mp3.qiniudn.com/7月24日 17点45分.mp3";
+//    http://cuotiben-mp3.qiniudn.com/7%25E6%259C%258824%25E6%2597%25A5%252017%25E7%2582%25B945%25E5%2588%2586.mp3
     private AudioPlayer mPlayer;
     private AudioBean currentAudioBean;//当前正在播放的音乐对应的AudioBean
     private AudioAdapter audioAdapter;
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 /*
         TextView textView = new TextView(this);
         textView.setText("What the fuck");
@@ -32,6 +42,9 @@ public class AudioActivity extends AppCompatActivity {
         textView.setHeight(780);
         setContentView(textView);*/
         setContentView(R.layout.activity_audio);
+        int length = "http://cuotiben-mp3.qiniudn.com/".length();
+        url=url.substring(0,length)+ Uri.encode(url.substring(length));
+        Log.i("url",url);
         initData();
         initView();
     }
@@ -82,6 +95,7 @@ public class AudioActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     private void initView() {
         ActionBar actionBar = getActionBar();
 //        actionBar.setLogo(R.mipmap.ic_setting);

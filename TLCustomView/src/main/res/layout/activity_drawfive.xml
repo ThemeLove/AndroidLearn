@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.themelove.tlcostomview.Case.draw.drawfive.BaseLineTextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <com.themelove.tlcostomview.Case.draw.drawfive.TextAlignView
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <com.themelove.tlcostomview.Case.draw.drawfive.FontMetricsAndBaseLineTextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <com.themelove.tlcostomview.Case.draw.drawfive.DrawAreaTextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+    </LinearLayout>
+</ScrollView>

@@ -3,6 +3,7 @@
     package="com.themelove.androidlearn">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:name=".base.TLApplication"
         android:allowBackup="true"
@@ -31,6 +32,7 @@
 
 
         <activity android:name=".Case.tablayout.TabLayoutActivity"></activity>
+        <activity android:name=".Case.touchevent.TouchEventActivity"></activity>
 
         <meta-data
             android:name="ThemeLove"
