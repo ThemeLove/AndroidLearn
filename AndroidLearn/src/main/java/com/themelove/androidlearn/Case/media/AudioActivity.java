@@ -61,7 +61,6 @@ public class AudioActivity extends AppCompatActivity {
                 currentAudioBean.setAudioState(AudioState.stopped);
                 mPlayer.stop();
                 audioAdapter.setDataAndRefresh(mAudioBeanList);
-
             }
         });
 
@@ -79,7 +78,6 @@ public class AudioActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     private void initView() {

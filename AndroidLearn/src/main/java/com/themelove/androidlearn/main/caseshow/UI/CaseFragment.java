@@ -74,9 +74,19 @@ public class CaseFragment extends TLFragment {
         CaseAdapter caseAdapter = new CaseAdapter(caseList);
         caseAdapter.setOnItemClickListener(new CaseAdapter.OnItemClickListener() {
             @Override
-
             public void onItemClickListener(CaseBean bean) {
                 try {
+                    Log.i("TL","onItemClick");
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.i("TLread:out",Thread.currentThread().getName());
+                            String s=null;
+//                            s.toString();
+                        }
+                    }).start();
+                    //      全局异常测试
+
                     Intent intent = new Intent(getActivity(), Class.forName(bean.getToClass()));
                     startActivity(intent);
                 } catch (ClassNotFoundException e) {

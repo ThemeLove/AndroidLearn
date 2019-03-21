@@ -56,7 +56,7 @@ public class AudioAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         AudioBean audioBean = (AudioBean) getItem(position);
-        ViewHolder holder=null;
+        ViewHolder holder;
         if (convertView==null){
             holder=new ViewHolder();
             convertView=mInflater.inflate(R.layout.item_voice,parent,false);
@@ -120,6 +120,5 @@ public class AudioAdapter extends BaseAdapter{
     public interface OnVoiceClickListener{
         void onClickListener(int position);
     }
-
 
 }

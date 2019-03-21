@@ -30,21 +30,27 @@ public class CaseModel{
                 "ToolBar的使用",
                 "PagerTabStrip最佳实战",
                 "CustomProgressBar",
-                "MediaPlayer"
+                "MediaPlayer",
+                "ShortCut",
+                "外链跳转到app页面"
         };
 
         mCaseDescs=new String[]{
                 "（ToolBar的详细使用）",
                 "（PagerTabStrip和ViewPager的结合使用）",
                 "（自定义ProgressBar下载进度条）",
-                "（ListView中播放音频和帧动画结合使用）"
+                "（ListView中播放音频和帧动画结合使用）",
+                "动态创建、删除图标桌面图标",
+                "外链跳转到app内指定页面"
         };
 
         mCaseActions=new String[]{
                 "com.themelove.androidlearn.Case.appbar.UI.ToolBarActivity",
                 "com.themelove.androidlearn.Case.PagerTab.PagerTabStripActivity",
                 "com.themelove.androidlearn.Case.progressbar.ProgressBarTestActivity",
-                "com.themelove.androidlearn.Case.media.AudioActivity"
+                "com.themelove.androidlearn.Case.media.AudioActivity",
+                "com.themelove.androidlearn.Case.createshortcut.DynamicCreateShortCutActivity",
+                "com.themelove.androidlearn.Case.linkjump2apppage.LinkJump2AppPageActivity"
         };
     }
 

@@ -54,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         initView();
 //      initViewTest();
         initAction();
+
+//      全局异常测试
+        String s=null;
+//        s.toString();
+
     }
 
     private void initData() {

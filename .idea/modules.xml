@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidLearn.iml" filepath="$PROJECT_DIR$/AndroidLearn.iml" />
       <module fileurl="file://$PROJECT_DIR$/AndroidLearn/AndroidLearn-AndroidLearn.iml" filepath="$PROJECT_DIR$/AndroidLearn/AndroidLearn-AndroidLearn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Learn-AndroidLearn.iml" filepath="$PROJECT_DIR$/Learn-AndroidLearn.iml" />
       <module fileurl="file://$PROJECT_DIR$/TLCustomView/TLCustomView.iml" filepath="$PROJECT_DIR$/TLCustomView/TLCustomView.iml" />
     </modules>
   </component>
