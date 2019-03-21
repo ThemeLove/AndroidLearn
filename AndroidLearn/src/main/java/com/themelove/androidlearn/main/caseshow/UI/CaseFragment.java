@@ -1,5 +1,6 @@
 package com.themelove.androidlearn.main.caseshow.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
@@ -7,9 +8,11 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.themelove.androidlearn.base.TLFragment;
 import com.themelove.androidlearn.R;
@@ -17,6 +20,7 @@ import com.themelove.androidlearn.main.caseshow.bean.CaseBean;
 import com.themelove.androidlearn.main.caseshow.model.CaseModel;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Created by qingshanliao on 2017/2/16.
@@ -76,6 +80,7 @@ public class CaseFragment extends TLFragment {
             @Override
             public void onItemClickListener(CaseBean bean) {
                 try {
+<<<<<<< HEAD
                     Log.i("TL","onItemClick");
                     new Thread(new Runnable() {
                         @Override
@@ -86,6 +91,8 @@ public class CaseFragment extends TLFragment {
                         }
                     }).start();
                     //      全局异常测试
+=======
+>>>>>>> 03e88e3349a36e1c931cda90d783ae5168e289fb
 
                     Intent intent = new Intent(getActivity(), Class.forName(bean.getToClass()));
                     startActivity(intent);
@@ -93,7 +100,6 @@ public class CaseFragment extends TLFragment {
                     e.printStackTrace();
                 }
             }
-
 
         });
         mRecyclerView.setAdapter(caseAdapter);

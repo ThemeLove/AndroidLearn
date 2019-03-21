@@ -32,7 +32,8 @@ public class CaseModel{
                 "CustomProgressBar",
                 "MediaPlayer",
                 "ShortCut",
-                "外链跳转到app页面"
+                "外链跳转到app页面",
+                "事件传递机制"
         };
 
         mCaseDescs=new String[]{
@@ -41,7 +42,8 @@ public class CaseModel{
                 "（自定义ProgressBar下载进度条）",
                 "（ListView中播放音频和帧动画结合使用）",
                 "动态创建、删除图标桌面图标",
-                "外链跳转到app内指定页面"
+                "外链跳转到app内指定页面",
+                "事件传递机制测试"
         };
 
         mCaseActions=new String[]{
@@ -50,7 +52,8 @@ public class CaseModel{
                 "com.themelove.androidlearn.Case.progressbar.ProgressBarTestActivity",
                 "com.themelove.androidlearn.Case.media.AudioActivity",
                 "com.themelove.androidlearn.Case.createshortcut.DynamicCreateShortCutActivity",
-                "com.themelove.androidlearn.Case.linkjump2apppage.LinkJump2AppPageActivity"
+                "com.themelove.androidlearn.Case.linkjump2apppage.LinkJump2AppPageActivity",
+                "com.themelove.androidlearn.Case.touchevent.TouchEventActivity"
         };
     }
 
