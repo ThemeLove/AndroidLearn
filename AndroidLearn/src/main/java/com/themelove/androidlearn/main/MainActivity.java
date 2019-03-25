@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        mFragments=new ArrayList();
+        mFragments=new ArrayList<>();
         for (int i=1;i<10;i++){
             if (i%2==0){
                 HomeFragment homeFragment = new HomeFragment();
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 //        mFragments.add(homeFragment);
 //        mFragments.add(caseFragment);
 
-        mMainTitles =new ArrayList();
+        mMainTitles =new ArrayList<>();
         for (int i=1;i<10;i++){
             MainTitle mainTitle = new MainTitle("第" + i + "页", R.mipmap.ic_share, i, i);
             mMainTitles.add(mainTitle);

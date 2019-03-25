@@ -57,6 +57,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".demo.touchevent.TouchEventActivity"/>
+        <activity android:name=".demo.dagger2.Dagger2Activity" />
 
         <meta-data
             android:name="ThemeLove"

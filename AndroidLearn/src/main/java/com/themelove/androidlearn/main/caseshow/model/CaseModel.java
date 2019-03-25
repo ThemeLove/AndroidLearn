@@ -27,6 +27,7 @@ public class CaseModel{
 
     static{
         mCaseTitles=new String[]{
+                "Dagger2",
                 "ToolBar的使用",
                 "PagerTabStrip最佳实战",
                 "CustomProgressBar",
@@ -37,6 +38,7 @@ public class CaseModel{
         };
 
         mCaseDescs=new String[]{
+                "（Dagger2用法测试）",
                 "（ToolBar的详细使用）",
                 "（PagerTabStrip和ViewPager的结合使用）",
                 "（自定义ProgressBar下载进度条）",
@@ -47,13 +49,14 @@ public class CaseModel{
         };
 
         mCaseActions=new String[]{
-                "com.themelove.androidlearn.Case.appbar.UI.ToolBarActivity",
-                "com.themelove.androidlearn.Case.PagerTab.PagerTabStripActivity",
-                "com.themelove.androidlearn.Case.progressbar.ProgressBarTestActivity",
-                "com.themelove.androidlearn.Case.media.AudioActivity",
-                "com.themelove.androidlearn.Case.createshortcut.DynamicCreateShortCutActivity",
-                "com.themelove.androidlearn.Case.linkjump2apppage.LinkJump2AppPageActivity",
-                "com.themelove.androidlearn.Case.touchevent.TouchEventActivity"
+                "com.themelove.androidlearn.demo.dagger2.Dagger2Activity",
+                "com.themelove.androidlearn.demo.appbar.ui.ToolBarActivity",
+                "com.themelove.androidlearn.demo.PagerTab.PagerTabStripActivity",
+                "com.themelove.androidlearn.demo.progressbar.ProgressBarTestActivity",
+                "com.themelove.androidlearn.demo.media.AudioActivity",
+                "com.themelove.androidlearn.demo.createshortcut.DynamicCreateShortCutActivity",
+                "com.themelove.androidlearn.demo.linkjump2apppage.LinkJump2AppPageActivity",
+                "com.themelove.androidlearn.demo.touchevent.TouchEventActivity",
         };
     }
 

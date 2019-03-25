@@ -80,7 +80,6 @@ public class CaseFragment extends TLFragment {
             @Override
             public void onItemClickListener(CaseBean bean) {
                 try {
-<<<<<<< HEAD
                     Log.i("TL","onItemClick");
                     new Thread(new Runnable() {
                         @Override
@@ -91,9 +90,6 @@ public class CaseFragment extends TLFragment {
                         }
                     }).start();
                     //      全局异常测试
-=======
->>>>>>> 03e88e3349a36e1c931cda90d783ae5168e289fb
-
                     Intent intent = new Intent(getActivity(), Class.forName(bean.getToClass()));
                     startActivity(intent);
                 } catch (ClassNotFoundException e) {
