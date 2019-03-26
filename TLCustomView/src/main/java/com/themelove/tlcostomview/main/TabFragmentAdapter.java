@@ -16,7 +16,6 @@ import java.util.ArrayList;
 /**
  * Created by lqs on 2017/6/8.
  */
-
 public class TabFragmentAdapter extends FragmentPagerAdapter {
     private ArrayList<Fragment> mFragmentList;
     private String[]            mTitles;

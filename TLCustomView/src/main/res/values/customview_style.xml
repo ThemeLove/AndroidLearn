@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AvatarView">
+        <attr name="src" format="reference"></attr>
+        <attr name="type" format="enum">
+            <enum name="circle" value="0"></enum>
+            <enum name="round" value="1"></enum>
+        </attr>
+        <attr name="round_radius" format="integer"></attr>
+    </declare-styleable>
+</resources>

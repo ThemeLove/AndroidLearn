@@ -18,5 +18,8 @@
         <activity android:name=".Case.draw.drawtwo.DrawTwoTestActivity"></activity>
         <activity android:name=".Case.draw.drawthree.DrawThreeTestActivity"></activity>
         <activity android:name=".Case.draw.drawfour.DrawFourTestActivity"></activity>
+        <activity android:name=".Case.draw.drawfive.DrawFiveTestActivity"></activity>
+        <activity android:name=".Case.draw.drawsix.DrawSixTestActivity"></activity>
+        <activity android:name=".Case.draw.draweighteen.DrawEighteenTestActivity"></activity>
     </application>
 </manifest>
