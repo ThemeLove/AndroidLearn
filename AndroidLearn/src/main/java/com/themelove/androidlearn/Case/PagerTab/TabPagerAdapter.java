@@ -9,8 +9,8 @@ import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.themelove.androidlearn.base.Title;
 import com.themelove.androidlearn.R;
+import com.themelove.androidlearn.base.Title;
 import com.themelove.androidlearn.utils.BitmapUtil;
 
 import java.util.List;

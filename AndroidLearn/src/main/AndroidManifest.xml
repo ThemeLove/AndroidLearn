@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-            android:name=".Case.appbar.UI.ToolBarActivity"
+            android:name=".Case.appbar.ui.ToolBarActivity"
             android:theme="@style/AppDefault" />
         <activity android:name=".Case.progressbar.ProgressBarTestActivity"
             android:theme="@style/AppDefault">

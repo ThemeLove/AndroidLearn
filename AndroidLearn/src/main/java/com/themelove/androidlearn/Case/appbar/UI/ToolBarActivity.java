@@ -1,4 +1,4 @@
-package com.themelove.androidlearn.Case.appbar.UI;
+package com.themelove.androidlearn.Case.appbar.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
