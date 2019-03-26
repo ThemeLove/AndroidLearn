@@ -28,6 +28,7 @@ public class CaseModel{
     static{
         mCaseTitles=new String[]{
                 "Dagger2",
+                "Dagger2Test",
                 "ToolBar的使用",
                 "PagerTabStrip最佳实战",
                 "CustomProgressBar",
@@ -39,6 +40,7 @@ public class CaseModel{
 
         mCaseDescs=new String[]{
                 "（Dagger2用法测试）",
+                "（Dagger2Test用法测试）",
                 "（ToolBar的详细使用）",
                 "（PagerTabStrip和ViewPager的结合使用）",
                 "（自定义ProgressBar下载进度条）",
@@ -50,6 +52,7 @@ public class CaseModel{
 
         mCaseActions=new String[]{
                 "com.themelove.androidlearn.demo.dagger2.Dagger2Activity",
+                "com.themelove.androidlearn.demo.dagger2.test.TestDagger2Activity",
                 "com.themelove.androidlearn.demo.appbar.ui.ToolBarActivity",
                 "com.themelove.androidlearn.demo.PagerTab.PagerTabStripActivity",
                 "com.themelove.androidlearn.demo.progressbar.ProgressBarTestActivity",

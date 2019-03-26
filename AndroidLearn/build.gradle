@@ -30,7 +30,7 @@ android {
             keyPassword "123456"         //别名密码
         }
         release {
-            storeFile file('D:/studioSpace/Learn/AndroidLearn/AndroidLearn/AndroidLearn.jks')//签名文件的位置
+            storeFile file('./AndroidLearn.jks')//签名文件的位置
             storePassword "123456"           //签名密码
             keyAlias "AndroidLearn"     //别名
             keyPassword "123456"           //别名密码
