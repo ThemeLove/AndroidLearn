@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.themelove.androidlearn.Case.touchevent.EventViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+<com.themelove.androidlearn.demo.touchevent.EventViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -20,11 +20,11 @@
         android:layout_height="100dp"
         android:background="#999999" />
 
-    <com.themelove.androidlearn.Case.touchevent.EventView
+    <com.themelove.androidlearn.demo.touchevent.EventView
         android:id="@+id/event_textView"
         android:text="自定义TextView"
         android:gravity="center"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#99CC66" />
-</com.themelove.androidlearn.Case.touchevent.EventViewGroup>
+</com.themelove.androidlearn.demo.touchevent.EventViewGroup>

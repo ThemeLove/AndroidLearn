@@ -3,6 +3,11 @@
     package="com.themelove.androidlearn">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:name=".base.TLApplication"
@@ -15,29 +20,50 @@
             android:theme="@style/AppDefault">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".Case.appbar.ui.ToolBarActivity"
+
+            android:name=".demo.appbar.ui.ToolBarActivity"
             android:theme="@style/AppDefault" />
-        <activity android:name=".Case.progressbar.ProgressBarTestActivity"
-            android:theme="@style/AppDefault">
-        </activity>
-        <activity android:name=".Case.media.AudioActivity"
-            android:theme="@style/AppDefault">
-        </activity>
-        <activity android:name=".Case.pagertab.PagerTabStripActivity"/>
+        <activity
+            android:name=".demo.progressbar.ProgressBarTestActivity"
+            android:theme="@style/AppDefault"/>
+        <activity
+            android:name=".demo.media.AudioActivity"
+            android:theme="@style/AppDefault"/>
+        <activity android:name=".demo.pagertab.PagerTabStripActivity" />
+        <activity android:name=".demo.tablayout.TabLayoutActivity" />
+        <activity android:name=".demo.createshortcut.DynamicCreateShortCutActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
 
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".demo.linkjump2apppage.LinkJump2AppPageActivity">
+            <intent-filter>
+                <data android:scheme="themelove"
+                      android:host="test"
+                      android:path="/case/linkjump2apppage/LinkJump2AppPageActivity"
+                      android:port="8080"
+                    />
+                <action android:name="android.intent.action.VIEW"/>
 
-        <activity android:name=".Case.tablayout.TabLayoutActivity"></activity>
-        <activity android:name=".Case.touchevent.TouchEventActivity"></activity>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+            </intent-filter>
+        </activity>
+        <activity android:name=".demo.touchevent.TouchEventActivity"/>
+        <activity android:name=".demo.dagger2.Dagger2Activity" />
 
         <meta-data
             android:name="ThemeLove"
             android:value="${ThemeLoveChannel}" />
-    </application>
 
+    </application>
 
 </manifest>
