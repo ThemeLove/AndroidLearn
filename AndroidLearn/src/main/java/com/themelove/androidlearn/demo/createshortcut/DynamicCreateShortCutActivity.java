@@ -40,7 +40,7 @@ public class DynamicCreateShortCutActivity extends TLActivity {
         container.setBackgroundColor(Color.GRAY);
 
         TextView createShortCut = new TextView(this);
-        FrameLayout.LayoutParams createParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,DisplayUtil.dip2px(50));
+        FrameLayout.LayoutParams createParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,DisplayUtil.dp2px(50));
         createParams.topMargin=50;
         createParams.gravity= Gravity.LEFT;
         createShortCut.setText("动态创建桌面图标");
@@ -49,7 +49,7 @@ public class DynamicCreateShortCutActivity extends TLActivity {
         createShortCut.setBackgroundColor(Color.CYAN);
         container.addView(createShortCut,createParams);
 
-        FrameLayout.LayoutParams deleteParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,DisplayUtil.dip2px(50));
+        FrameLayout.LayoutParams deleteParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,DisplayUtil.dp2px(50));
         deleteParams.topMargin=50;
         deleteParams.gravity=Gravity.RIGHT;
         final TextView deleteShortCut=new TextView(this);

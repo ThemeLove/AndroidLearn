@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pagerIndicator="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+    <com.themelove.androidlearn.demo.pageindicator.PageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        pagerIndicator:radiusArc="5dp"
+        pagerIndicator:stockWidthArc="1dp"
+        pagerIndicator:colorArc="@color/colorPrimary"
+        pagerIndicator:radiusFill="3dp"
+        pagerIndicator:colorFill="@color/slidingtab_indicatorcolor"
+        />
+</RelativeLayout>

@@ -23,6 +23,18 @@ public abstract class TLFragment extends Fragment {
     private State currentState=State.LOADING;
     private View successView;
 
+    private Bundle data;
+
+    public  Bundle getArgumentData(){
+        return data;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        data = getArguments();
+    }
+
     /**
      * 加上final,不让子类复写
      * @param inflater

@@ -1,6 +1,5 @@
 package com.themelove.androidlearn.main.caseshow.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
@@ -8,19 +7,16 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
-import com.themelove.androidlearn.base.TLFragment;
 import com.themelove.androidlearn.R;
+import com.themelove.androidlearn.base.TLFragment;
 import com.themelove.androidlearn.main.caseshow.bean.CaseBean;
 import com.themelove.androidlearn.main.caseshow.model.CaseModel;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * Created by qingshanliao on 2017/2/16.

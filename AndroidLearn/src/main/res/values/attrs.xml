@@ -14,4 +14,13 @@
         <attr name="shouldExpand" format="boolean" />
         <attr name="pst_textAllCaps" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="pagerIndicator">
+        <attr name="radiusArc" format="dimension">圆环半径</attr>
+        <attr name="stockWidthArc" format="dimension">圆环线宽</attr>
+        <attr name="colorArc" format="color">圆环颜色</attr>
+        <attr name="radiusFill" format="dimension">实心半径</attr>
+        <attr name="colorFill" format="color">实心颜色</attr>
+        <attr name="count" format="integer">指示点数量</attr>
+        <attr name="space" format="dimension">间距</attr>
+    </declare-styleable>
 </resources>

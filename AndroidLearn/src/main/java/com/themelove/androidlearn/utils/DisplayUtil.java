@@ -109,11 +109,11 @@ public class DisplayUtil {
         return screenWidth > screenHeight;
     }
 
-    public static int px2dip(float inParam) {
+    public static int px2dp(float inParam) {
         return (int) (inParam / density + 0.5F);
     }
 
-    public static int dip2px(float inParam) {
+    public static int dp2px(float inParam) {
         return (int) (inParam * density + 0.5F);
     }
 

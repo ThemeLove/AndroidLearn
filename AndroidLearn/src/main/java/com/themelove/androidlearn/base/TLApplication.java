@@ -1,8 +1,10 @@
 package com.themelove.androidlearn.base;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
-import com.themelove.androidlearn.demo.dagger2.test.ActivityModule;
 import com.themelove.androidlearn.demo.dagger2.test.AppBean;
 import com.themelove.androidlearn.demo.dagger2.test.AppModule;
 import com.themelove.androidlearn.demo.dagger2.test.DaggerAppComponet;
@@ -15,7 +17,7 @@ import javax.inject.Inject;
  * 自定义Application
  * Created by qingshanliao on 2017/2/16.
  */
-public class TLApplication extends Application {
+public class TLApplication extends MultiDexApplication {
     private static Application instance;
 
     @StringQualifier
@@ -35,6 +37,13 @@ public class TLApplication extends Application {
 
         stringAppBean.getAppInfo();
         intAppBean.getAppInfo();
+    }
+
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public static Application getApplication(){

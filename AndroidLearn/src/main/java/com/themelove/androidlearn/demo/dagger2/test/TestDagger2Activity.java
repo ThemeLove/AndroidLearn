@@ -33,7 +33,7 @@ public class TestDagger2Activity extends AppCompatActivity {
         textView.setText(TAG);
         setContentView(textView);
         Log.i(TAG, "onCreate");
-        DaggerActivityComponet.builder().activityModule(new ActivityModule("activityModule")).build().inject(this);
+//        DaggerActivityComponet.builder().activityModule(new ActivityModule("activityModule")).build().inject(this);
 //        DaggerAppComponet.builder().appModule(new AppModule()).build().provideActivityComponet(new ActivityModule()).inject(this);
 
     }

@@ -35,7 +35,8 @@ public class CaseModel{
                 "MediaPlayer",
                 "ShortCut",
                 "外链跳转到app页面",
-                "事件传递机制"
+                "事件传递机制",
+                "PageIndicator"
         };
 
         mCaseDescs=new String[]{
@@ -47,7 +48,8 @@ public class CaseModel{
                 "（ListView中播放音频和帧动画结合使用）",
                 "动态创建、删除图标桌面图标",
                 "外链跳转到app内指定页面",
-                "事件传递机制测试"
+                "事件传递机制测试",
+                "自定义PageIndicator"
         };
 
         mCaseActions=new String[]{
@@ -60,6 +62,7 @@ public class CaseModel{
                 "com.themelove.androidlearn.demo.createshortcut.DynamicCreateShortCutActivity",
                 "com.themelove.androidlearn.demo.linkjump2apppage.LinkJump2AppPageActivity",
                 "com.themelove.androidlearn.demo.touchevent.TouchEventActivity",
+                "com.themelove.androidlearn.demo.pageindicator.PageIndicatorTestActivity"
         };
     }
 
