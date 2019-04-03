@@ -10,8 +10,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class RetrofitTestActivity extends AppCompatActivity {
@@ -31,19 +37,28 @@ public class RetrofitTestActivity extends AppCompatActivity {
         textView.setGravity(Gravity.CENTER);
         setContentView(textView);
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getDelivery();
-            }
-        });
-
+        textView.setOnClickListener(v -> getDelivery());  //lambda的写法
     }
 
     private void getDelivery() {
         RetrofitUtil.init(this.getApplicationContext());
         ApiServer apiServer = RetrofitUtil.createApiServer(ApiServer.class);
-        Observable<DeliveryBean> deliveryBeanObservable = apiServer.getDelivery("zhongtong", "75136378475307");
+//        Observable<DeliveryBean> deliveryBeanObservable = apiServer.getDelivery("zhongtong", "75136378475307");
+        Observable<DeliveryBean> deliveryBeanObservable = apiServer.getDelivery("zhongtong", "75136378475307")
+                .doOnNext(new Consumer<DeliveryBean>() {
+                    @Override
+                    public void accept(DeliveryBean deliveryBean) throws Exception {
+                        Log.i(TAG,"accept----->deliveryBean.message="+deliveryBean.message);
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .flatMap(new Function<DeliveryBean, ObservableSource<DeliveryBean>>() {
+                    @Override
+                    public ObservableSource<DeliveryBean> apply(DeliveryBean deliveryBean) throws Exception {
+                        Log.i(TAG,"flatMap----->deliveryBean.message="+deliveryBean.message);
+                       return apiServer.getDelivery("zhongtong", "123");
+                    }
+                });
         RetrofitUtil.toSubscribe(deliveryBeanObservable, new Observer<DeliveryBean>() {
             @Override
             public void onSubscribe(Disposable d) {
