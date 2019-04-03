@@ -16,10 +16,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
-        pagerIndicator:radiusArc="5dp"
-        pagerIndicator:stockWidthArc="1dp"
+        pagerIndicator:radiusArc="1dp"
+        pagerIndicator:stockWidthArc="0.5dp"
         pagerIndicator:colorArc="@color/colorPrimary"
-        pagerIndicator:radiusFill="3dp"
+        pagerIndicator:radiusFill="1dp"
         pagerIndicator:colorFill="@color/slidingtab_indicatorcolor"
         />
 </RelativeLayout>

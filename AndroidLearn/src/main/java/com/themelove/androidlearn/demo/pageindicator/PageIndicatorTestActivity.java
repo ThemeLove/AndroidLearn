@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.themelove.androidlearn.R;
 import com.themelove.androidlearn.base.TLActivity;
@@ -27,9 +29,21 @@ public class PageIndicatorTestActivity extends TLActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //这行去掉标题栏无效，要用下面的代码
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
         setContentView(R.layout.activity_pageindicator);
         initData();
         initView();
+    }
+    boolean isPause;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isPause=true;
     }
 
     private void initData() {
@@ -48,7 +62,15 @@ public class PageIndicatorTestActivity extends TLActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updateFragmentAnim();
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(!isPause){
+            updateFragmentAnim();
+        }
     }
 
     private void initView() {

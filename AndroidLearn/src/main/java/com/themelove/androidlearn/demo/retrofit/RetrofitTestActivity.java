@@ -16,6 +16,7 @@ import io.reactivex.disposables.Disposable;
 
 public class RetrofitTestActivity extends AppCompatActivity {
     private final String TAG = RetrofitTestActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
