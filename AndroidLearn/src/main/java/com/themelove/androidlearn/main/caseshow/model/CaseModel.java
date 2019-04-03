@@ -27,6 +27,7 @@ public class CaseModel{
 
     static{
         mCaseTitles=new String[]{
+                "Retrofit",
                 "Dagger2",
                 "Dagger2Test",
                 "ToolBar的使用",
@@ -40,6 +41,7 @@ public class CaseModel{
         };
 
         mCaseDescs=new String[]{
+                "(Retrofit-OkHttp-RxJava结合使用)",
                 "（Dagger2用法测试）",
                 "（Dagger2Test用法测试）",
                 "（ToolBar的详细使用）",
@@ -53,6 +55,7 @@ public class CaseModel{
         };
 
         mCaseActions=new String[]{
+                "com.themelove.androidlearn.demo.retrofit.RetrofitTestActivity",
                 "com.themelove.androidlearn.demo.dagger2.Dagger2Activity",
                 "com.themelove.androidlearn.demo.dagger2.test.TestDagger2Activity",
                 "com.themelove.androidlearn.demo.appbar.ui.ToolBarActivity",

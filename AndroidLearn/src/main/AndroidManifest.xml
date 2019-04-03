@@ -64,6 +64,7 @@
         <activity android:name=".demo.dagger2.Dagger2Activity" android:theme="@style/AppDefault" />
         <activity android:name=".demo.dagger2.test.TestDagger2Activity" android:theme="@style/AppDefault"/>
         <activity android:name=".demo.pageindicator.PageIndicatorTestActivity" android:theme="@style/AppDefault"/>
+        <activity android:name=".demo.retrofit.RetrofitTestActivity" android:theme="@style/AppDefault"/>
         <meta-data
             android:name="ThemeLove"
             android:value="${ThemeLoveChannel}" />
