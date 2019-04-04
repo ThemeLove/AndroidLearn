@@ -27,6 +27,7 @@ public class CaseModel{
 
     static{
         mCaseTitles=new String[]{
+                "VideoView",
                 "Retrofit",
                 "Dagger2",
                 "Dagger2Test",
@@ -41,6 +42,7 @@ public class CaseModel{
         };
 
         mCaseDescs=new String[]{
+                "VideoView的使用",
                 "(Retrofit-OkHttp-RxJava结合使用)",
                 "（Dagger2用法测试）",
                 "（Dagger2Test用法测试）",
@@ -55,6 +57,7 @@ public class CaseModel{
         };
 
         mCaseActions=new String[]{
+                "com.themelove.androidlearn.demo.media.VideoViewActivity",
                 "com.themelove.androidlearn.demo.retrofit.RetrofitTestActivity",
                 "com.themelove.androidlearn.demo.dagger2.Dagger2Activity",
                 "com.themelove.androidlearn.demo.dagger2.test.TestDagger2Activity",
