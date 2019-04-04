@@ -23,11 +23,12 @@
     </style>
 
     <!--ThemeLove的App通用的style-->
-    <style name="AppThemeLove" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppThemeLove" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item  name="android:background">@color/colorPrimary</item>
+        <!--设置时视图根布局没有设置颜色时，背景色显示的颜色-->
+<!--        <item  name="android:background">@color/colorPrimary</item>-->
     </style>
 
     <style name="AppToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Light">

@@ -28,6 +28,7 @@ public class ToolBarActivity extends AppCompatActivity {
 
 //      因为我们在清单文件的背景中配置的Theme为Theme.AppCompat(深色的兼容主题)，默认是有ActionBar的，所以我们在代码中设置为不要ActionBar
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toolbar);
         initView();

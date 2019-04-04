@@ -20,4 +20,8 @@
             android:id="@+id/customView"
             android:text="Toolbar中自定义控件" />
     </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/yellow"/>
 </LinearLayout>
