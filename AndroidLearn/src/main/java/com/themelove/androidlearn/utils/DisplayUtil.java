@@ -1,6 +1,8 @@
 package com.themelove.androidlearn.utils;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -19,6 +21,7 @@ public class DisplayUtil {
     public static final int DISPLAY_MIDDLE = 1;
     public static final int DISPLAY_LARGE = 2;
     public static final int DISPLAY_XLARGE = 3;
+
 
     private static boolean isInitialize = false;
     /**
@@ -105,8 +108,24 @@ public class DisplayUtil {
     /**
      * 是否是横屏
      */
-    public static boolean isHorizontal() {
-        return screenWidth > screenHeight;
+    public static boolean isHorizontal(Activity activity) {
+        if (activity==null)return false;
+        Configuration configuration = activity.getResources().getConfiguration();
+        int ori=configuration.orientation;
+        if (ori==Configuration.ORIENTATION_LANDSCAPE){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isProtrait(Activity activity){
+        if (activity==null)return false;
+        Configuration configuration = activity.getResources().getConfiguration();
+        int ori=configuration.orientation;
+        if (ori==Configuration.ORIENTATION_PORTRAIT){
+            return true;
+        }
+        return false;
     }
 
     public static int px2dp(float inParam) {
@@ -137,4 +156,5 @@ public class DisplayUtil {
         scaleHeight = (int) (scale * height);
         return scaleHeight;
     }
+
 }
