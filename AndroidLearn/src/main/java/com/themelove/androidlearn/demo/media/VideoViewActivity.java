@@ -11,13 +11,6 @@ import android.widget.VideoView;
 
 import com.themelove.androidlearn.R;
 import com.themelove.androidlearn.base.TLActivity;
-import com.themelove.androidlearn.core.views.FullScreenVideoView;
-
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 
 public class VideoViewActivity extends TLActivity {
