@@ -27,6 +27,7 @@ public class CaseModel{
 
     static{
         mCaseTitles=new String[]{
+                "GuideVideoView",
                 "WebDialog",
                 "VideoView",
                 "Retrofit",
@@ -43,6 +44,7 @@ public class CaseModel{
         };
 
         mCaseDescs=new String[]{
+                "GuideVideoView的使用",
                 "WebDialog的使用",
                 "VideoView的使用",
                 "(Retrofit-OkHttp-RxJava结合使用)",
@@ -59,6 +61,7 @@ public class CaseModel{
         };
 
         mCaseActions=new String[]{
+                "com.themelove.androidlearn.demo.media.CleanGuideTwoActivity",
                 "com.themelove.androidlearn.demo.DialogTestActivity",
                 "com.themelove.androidlearn.demo.media.VideoViewActivity",
                 "com.themelove.androidlearn.demo.retrofit.RetrofitTestActivity",
