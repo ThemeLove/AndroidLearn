@@ -27,22 +27,22 @@ public class VideoViewActivity extends TLActivity {
         videoView = findViewById(R.id.videoView);
 
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.guide_video1));
+
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                videoView.start();
-                videoView.setBackgroundColor(Color.TRANSPARENT);
-                /*mp.setOnInfoListener(new MediaPlayer.OnInfoListener() {
+//                videoView.start();
+//                videoView.setBackgroundColor(Color.TRANSPARENT);
+                mp.setOnInfoListener(new MediaPlayer.OnInfoListener() {
                     @Override
                     public boolean onInfo(MediaPlayer mp, int what, int extra) {
-                        if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) { // video 视屏播放的时候把背景设置为透明
+                        if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
                             videoView.setBackgroundColor(Color.TRANSPARENT);
-
                             return true;
                         }
                         return false;
                     }
-                });*/
+                });
 
             }
         });
@@ -69,6 +69,6 @@ public class VideoViewActivity extends TLActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-//        videoView.start();
+        videoView.start();
     }
 }
