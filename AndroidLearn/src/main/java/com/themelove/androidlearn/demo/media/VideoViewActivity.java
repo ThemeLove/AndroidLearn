@@ -71,4 +71,11 @@ public class VideoViewActivity extends TLActivity {
         super.onWindowFocusChanged(hasFocus);
         videoView.start();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        videoView.setOnPreparedListener(null);
+        videoView=null;
+    }
 }

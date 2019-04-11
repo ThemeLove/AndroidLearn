@@ -3,6 +3,7 @@ package com.themelove.androidlearn.demo.media;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * author:qingshanliao
@@ -79,11 +88,7 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
 
     private List<GuideBean> mGuideBeanList = new ArrayList<>();
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-//        updatePageStatus();
-    }
+
 
     private int[] mPagerVideoArray=new int[]{R.raw.guide_video1,R.raw.guide_video2,R.raw.guide_video3};
     private int[] mPageIndicatorArray = new int[]{R.drawable.ic_dot_gray_guide, R.drawable.iv_dot_red_guide};
@@ -204,9 +209,11 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
             @Override
             public void onPageScrollStateChanged(int state) {
                 if (state==ViewPager.SCROLL_STATE_DRAGGING){ //滑动状态
+                    Log.i(TAG,"onPageScrollStateChanged----->true----->state="+state);
                     isDragging = true;
                     updatePageStatus();
                 }else if(state==ViewPager.SCROLL_STATE_IDLE){//闲置状态
+                    Log.i(TAG,"onPageScrollStateChanged----->false----->state="+state);
                     isDragging=false;
                     updatePageStatus();
                 }
@@ -227,7 +234,7 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
         for (int i=0;i<mGuideBeanList.size();i++){
             GuideBean guideBean = mGuideBeanList.get(i);
             if (guideBean.type==0){
-                guideBean.videoView.setBackgroundResource((i==mCurrentPosition)?android.R.color.transparent:mPageBgArray[i]);
+                guideBean.videoView.setBackgroundResource(mPageBgArray[i]);
             }
             guideBean.indicatorView.setImageResource(i==mCurrentPosition?mPageIndicatorArray[1]:mPageIndicatorArray[0]);
         }
@@ -235,7 +242,12 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
         if (guideBean.type==0){
             if (isDragging){
                 guideBean.videoView.pause();
+
+//                guideBean.videoView.setBackgroundResource(mPageBgArray[mCurrentPosition]);
             }else{
+//                guideBean.videoView.seekTo(0);
+//                guideBean.videoView.start();
+                guideBean.videoView.resume();
                 guideBean.videoView.start();
             }
         }
@@ -279,4 +291,19 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
 //            this.finish();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG,"onResume");
+//        updatePageStatus();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.i(TAG,"onWindowFocusChanged----->hasFocus:"+hasFocus);
+        if (hasFocus)updatePageStatus();
+    }
+
 }
