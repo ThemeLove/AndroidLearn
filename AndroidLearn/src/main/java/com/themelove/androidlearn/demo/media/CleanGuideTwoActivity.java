@@ -1,9 +1,7 @@
 package com.themelove.androidlearn.demo.media;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
-import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,16 +23,6 @@ import com.themelove.androidlearn.utils.TipUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
-
 /**
  * author:qingshanliao
  * date:2019/4/8
@@ -55,10 +43,10 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        getWindow().setFormat(PixelFormat.TRANSLUCENT);
         setContentView(R.layout.activity_new_guide);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mPagerIndicatorLl = (LinearLayout) findViewById(R.id.loPageTurningPoint);
+        mPagerIndicatorLl = (LinearLayout) findViewById(R.id.pageIndicatorLl);
 
         initData();
         initListener();
@@ -90,9 +78,9 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
 
 
 
-    private int[] mPagerVideoArray=new int[]{R.raw.guide_video1,R.raw.guide_video2,R.raw.guide_video3};
+    private int[] mPagerVideoArray=new int[]{R.raw.new_guide_video1,R.raw.new_guide_video2,R.raw.new_guide_video3};
     private int[] mPageIndicatorArray = new int[]{R.drawable.ic_dot_gray_guide, R.drawable.iv_dot_red_guide};
-    private int[] mPageBgArray = new int[]{R.drawable.guide_bg1,R.drawable.guide_bg2,R.drawable.guide_bg3};
+    private int[] mPageBgArray = new int[]{R.drawable.new_guide_bg1,R.drawable.new_guide_bg2,R.drawable.new_guide_bg3};
 
     protected void initData() {
         mApkTarget = "http://wwww.baidu.com";
@@ -102,17 +90,12 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
 
         for (int i = 0; i < 3; i++) {
             View commonView = LayoutInflater.from(this).inflate(R.layout.activity_guide_3, null);
-            final int temp =i;
             final VideoView commonVideo = (VideoView) commonView.findViewById(R.id.video_bg);
             ImageView commonIvStart = (ImageView) commonView.findViewById(R.id.iv_start);
             commonVideo.setBackgroundResource(mPageBgArray[i]);
-
             commonIvStart.setVisibility((i == 2 && !mIsExistPPtvImage) ? View.VISIBLE : View.INVISIBLE);
             commonIvStart.setOnClickListener(this);
-
             commonVideo.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + mPagerVideoArray[i]));
-            commonVideo.start();
-
 
             GuideBean guideBean = new GuideBean();
             guideBean.type = 0;
@@ -187,14 +170,25 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
                     }
                 });
 
-                guideBean.videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                guideBean.videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                    @Override
+//                    public void onCompletion(MediaPlayer mediaPlayer) {
+//                        Log.i(TAG,"onCompletion----->i="+temp);
+////                        guideBean.videoView.start();
+//                    }
+//                });
+
+                guideBean.videoView.setOnErrorListener(new MediaPlayer.OnErrorListener(){
                     @Override
-                    public void onCompletion(MediaPlayer mediaPlayer) {
-                        Log.i(TAG,"onCompletion----->i="+temp);
+                    public boolean onError(MediaPlayer mp, int what, int extra) {
+//                  错误监听，播放异常的时候，则停止播放，防止弹窗阻塞UI
+                        guideBean.videoView.stopPlayback();
+//                        guideBean.videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + mPagerVideoArray[temp]));
+//                        guideBean.videoView.resume();
 //                        guideBean.videoView.start();
+                        return true;
                     }
                 });
-
             }
 
         }
@@ -229,6 +223,7 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
     }
 
     private void updatePageStatus() {
+
         mPagerIndicatorLl.setVisibility((mCurrentPosition==mGuideBeanList.size()-1)?View.GONE:View.VISIBLE);
 
         for (int i=0;i<mGuideBeanList.size();i++){
@@ -241,9 +236,10 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
         GuideBean guideBean = mGuideBeanList.get(mCurrentPosition);
         if (guideBean.type==0){
             if (isDragging){
-                guideBean.videoView.pause();
+                guideBean.videoView.stopPlayback();
+//                guideBean.videoView.pause();
 
-//                guideBean.videoView.setBackgroundResource(mPageBgArray[mCurrentPosition]);
+                guideBean.videoView.setBackgroundResource(mPageBgArray[mCurrentPosition]);
             }else{
 //                guideBean.videoView.seekTo(0);
 //                guideBean.videoView.start();

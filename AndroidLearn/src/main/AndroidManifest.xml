@@ -68,6 +68,7 @@
         <activity android:name=".demo.media.VideoViewActivity" android:theme="@style/AppThemeLove"/>
         <activity android:name=".demo.DialogTestActivity" android:theme="@style/AppThemeLove" android:screenOrientation="sensor"/>
         <activity android:name=".demo.media.CleanGuideTwoActivity" android:theme="@style/AppThemeLove"/>
+        <activity android:name=".demo.media.CleanNewGuideActivity" android:theme="@style/AppThemeLove"/>
         <meta-data
             android:name="ThemeLove"
             android:value="${ThemeLoveChannel}" />

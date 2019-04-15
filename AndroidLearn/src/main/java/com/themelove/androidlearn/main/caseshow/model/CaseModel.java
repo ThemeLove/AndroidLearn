@@ -27,6 +27,7 @@ public class CaseModel{
 
     static{
         mCaseTitles=new String[]{
+                "CleanNewGuideActivity",
                 "GuideVideoView",
                 "WebDialog",
                 "VideoView",
@@ -44,6 +45,7 @@ public class CaseModel{
         };
 
         mCaseDescs=new String[]{
+                "CleanNewGuideActivity",
                 "GuideVideoView的使用",
                 "WebDialog的使用",
                 "VideoView的使用",
@@ -61,6 +63,7 @@ public class CaseModel{
         };
 
         mCaseActions=new String[]{
+                "com.themelove.androidlearn.demo.media.CleanNewGuideActivity",
                 "com.themelove.androidlearn.demo.media.CleanGuideTwoActivity",
                 "com.themelove.androidlearn.demo.DialogTestActivity",
                 "com.themelove.androidlearn.demo.media.VideoViewActivity",

@@ -26,7 +26,7 @@ public class VideoViewActivity extends TLActivity {
         setContentView(R.layout.activity_videoview);
         videoView = findViewById(R.id.videoView);
 
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.guide_video1));
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.new_guide_video1));
 
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
