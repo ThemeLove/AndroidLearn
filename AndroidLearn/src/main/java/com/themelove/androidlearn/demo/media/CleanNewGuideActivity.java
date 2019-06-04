@@ -3,6 +3,7 @@ package com.themelove.androidlearn.demo.media;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,12 +13,15 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.VideoView;
 
 import com.themelove.androidlearn.R;
 import com.themelove.androidlearn.base.TLActivity;
+import com.themelove.androidlearn.utils.DisplayUtil;
 import com.themelove.androidlearn.utils.TipUtil;
 
 import java.util.ArrayList;
@@ -51,7 +55,9 @@ public class CleanNewGuideActivity extends TLActivity implements View.OnClickLis
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (hasFocus)updatePageStatus();
+
+        if (hasFocus)updatePageStatus(false);
+        Log.i(TAG,"onWindowFocusChanged----->hasFocus="+hasFocus);
     }
 
     @Override
@@ -71,6 +77,9 @@ public class CleanNewGuideActivity extends TLActivity implements View.OnClickLis
         mImageId = getIntent().getStringExtra("imageId");
         mIsExistPPtvImage = !TextUtils.isEmpty(mImageUrl);
 
+        Log.i(TAG,"initData----->screenWidth="+DisplayUtil.screenWidth);
+        Log.i(TAG,"initData----->screenHeight="+DisplayUtil.screenHeight);
+
         for (int i = 0; i < mPageVideoArray.length; i++) {
             View commonView = LayoutInflater.from(this).inflate(R.layout.view_new_guide_video, mViewPager,false);
             final VideoView videoView = (VideoView) commonView.findViewById(R.id.video_bg);
@@ -80,8 +89,23 @@ public class CleanNewGuideActivity extends TLActivity implements View.OnClickLis
             mPageViewList.add(commonView);
             mVideoViewList.add(videoView);
 
-//            videoView.setBackgroundResource(mPageBgArray[i]);
+
             videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + mPageVideoArray[i]));
+            MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+            mmr.setDataSource(this,Uri.parse("android.resource://" + getPackageName() + "/" + mPageVideoArray[i]));
+            String width = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH);//宽
+            String height = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT);//高
+
+            Log.i(TAG,"initdata----->index="+i+",width="+width+",height="+height);
+            ViewGroup.LayoutParams layoutParams = videoView.getLayoutParams();
+            Log.i(TAG,"layoutParams="+layoutParams.width+",layoutParmasHeight="+layoutParams.height);
+                layoutParams.width=DisplayUtil.screenWidth;
+                layoutParams.height=DisplayUtil.screenHeight;
+//                float scale=Float.parseFloat(width)/Float.parseFloat(height);
+//            layoutParams.width=Math.round(DisplayUtil.screenWidth*scale);
+                videoView.setLayoutParams(layoutParams);
+
+            videoView.setBackgroundResource(mPageBgArray[i]);
 
             ImageView indicatorView = new ImageView(this);
             indicatorView.setPadding(7, 0, 7, 0);
@@ -123,20 +147,31 @@ public class CleanNewGuideActivity extends TLActivity implements View.OnClickLis
                 Log.i(TAG,"onPageScrollStateChanged,state=" + state);
                 if (state== ViewPager.SCROLL_STATE_DRAGGING){ //滑动状态
                     isDragging = true;
-                    updatePageStatus();
-                }else if(state== ViewPager.SCROLL_STATE_IDLE){//闲置状态
+                    updatePageStatus(false);
+                }else if(state==ViewPager.SCROLL_STATE_IDLE){//闲置状态
+                    Log.i(TAG,"onPageScrollStateChanged----->false----->state="+state);
                     isDragging=false;
-                    updatePageStatus();
+                    updatePageStatus(false);
                 }
             }
             @Override
             public void onPageSelected(int position) {
+                isDragging=false;
                 Log.i(TAG,"onPageSelected,position=" + position);
                 mCurrentPosition = position;
-                updatePageStatus();
+                updatePageStatus(true);
             }
         });
-        for (VideoView videoView : mVideoViewList) {
+        for (int i=0;i<mVideoViewList.size();i++){
+            VideoView videoView = mVideoViewList.get(i);
+       /*     int index =i;
+            videoView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    Log.i(TAG,"TreeObserver----->index="+index);
+                    videoView.setBackgroundResource(mPageBgArray[index]);
+                }
+            });*/
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
@@ -146,7 +181,11 @@ public class CleanNewGuideActivity extends TLActivity implements View.OnClickLis
                             Log.i(TAG,"onInfo");
                             if (what== MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START){
                                 videoView.setBackgroundColor(Color.TRANSPARENT);
-                                return true;
+                               int width= videoView.getLayoutParams().width;
+                               int height = videoView.getLayoutParams().height;
+                               Log.i(TAG,"onPrepared----->width="+width+",height="+height);
+
+                               return true;
                             }
                             return false;
                         }
@@ -163,31 +202,30 @@ public class CleanNewGuideActivity extends TLActivity implements View.OnClickLis
                 }
             });
         }
+
     }
 
-    private void updatePageStatus() {
+    private void updatePageStatus(boolean isSelected) {
         mPageIndicatorLl.setVisibility((mCurrentPosition==mPageViewList.size()-1)? View.GONE: View.VISIBLE);
+        if (isSelected)return;
         for (int i=0;i<mPageViewList.size();i++){
             ImageView indicatorView = mIndicatorViewList.get(i);
             indicatorView.setImageResource(i==mCurrentPosition?mPageIndicatorArray[1]:mPageIndicatorArray[0]);
             if (i<mVideoViewList.size()){
                 VideoView videoView = mVideoViewList.get(i);
-                if (videoView!=null){
-//                    videoView.setBackgroundResource(mPageBgArray[i]);
-                    if (i==mCurrentPosition){
-                        if (isDragging){
-//                            videoView.pause();
-                            videoView.stopPlayback();
-                        }else{
-                            videoView.resume();
-                            videoView.start();
-//                            videoView.setBackgroundResource(mPageBgArray[i]);
-                        }
-                    }
-                }
+                videoView.setBackgroundResource(mPageBgArray[i]);
             }
             if ((mCurrentPosition==mPageViewList.size()-1)&&!TextUtils.isEmpty(mImageUrl)){
             }
+        }
+        if (mCurrentPosition<mVideoViewList.size()){
+           VideoView mCurrentVideoView = mVideoViewList.get(mCurrentPosition);
+           if (isDragging){
+               mCurrentVideoView.stopPlayback();
+           }else{
+               mCurrentVideoView.resume();
+               mCurrentVideoView.start();
+           }
         }
 
     }

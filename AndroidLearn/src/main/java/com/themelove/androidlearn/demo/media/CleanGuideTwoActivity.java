@@ -205,11 +205,11 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
                 if (state==ViewPager.SCROLL_STATE_DRAGGING){ //滑动状态
                     Log.i(TAG,"onPageScrollStateChanged----->true----->state="+state);
                     isDragging = true;
-                    updatePageStatus();
+                    updatePageStatus(false);
                 }else if(state==ViewPager.SCROLL_STATE_IDLE){//闲置状态
                     Log.i(TAG,"onPageScrollStateChanged----->false----->state="+state);
                     isDragging=false;
-                    updatePageStatus();
+                    updatePageStatus(false);
                 }
             }
 
@@ -217,14 +217,15 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
             public void onPageSelected(int position) {
                 Log.i(TAG,"onPageSelected,position=" + position);
                 mCurrentPosition = position;
-                updatePageStatus();
+                updatePageStatus(true);
             }
         });
     }
 
-    private void updatePageStatus() {
+    private void updatePageStatus(boolean isSelected) {
 
         mPagerIndicatorLl.setVisibility((mCurrentPosition==mGuideBeanList.size()-1)?View.GONE:View.VISIBLE);
+        if (isSelected)return;
 
         for (int i=0;i<mGuideBeanList.size();i++){
             GuideBean guideBean = mGuideBeanList.get(i);
@@ -239,7 +240,7 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
                 guideBean.videoView.stopPlayback();
 //                guideBean.videoView.pause();
 
-                guideBean.videoView.setBackgroundResource(mPageBgArray[mCurrentPosition]);
+//                guideBean.videoView.setBackgroundResource(mPageBgArray[mCurrentPosition]);
             }else{
 //                guideBean.videoView.seekTo(0);
 //                guideBean.videoView.start();
@@ -299,7 +300,7 @@ public class CleanGuideTwoActivity extends TLActivity implements View.OnClickLis
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         Log.i(TAG,"onWindowFocusChanged----->hasFocus:"+hasFocus);
-        if (hasFocus)updatePageStatus();
+        if (hasFocus)updatePageStatus(false);
     }
 
 }

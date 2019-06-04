@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.themelove.androidlearn.utils.DisplayUtil;
 import com.themelove.androidlearn.utils.TipUtil;
@@ -20,6 +21,10 @@ public class TLActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         DisplayUtil.initScreen(this);
         TipUtil.init(this);
+    }
+
+    public <T extends View> T findViewByID(int resId){
+       return (T) findViewById(resId);
     }
 
     public void showMessageDialog(CharSequence title, CharSequence message) {

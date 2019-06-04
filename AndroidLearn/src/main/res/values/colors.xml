@@ -16,5 +16,6 @@
     <color name="blue_green">#00ffff</color>
     <color name="blue">#0000ff</color>
     <color name="purple">#ff00ff</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

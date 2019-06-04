@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.themelove.androidlearn.demo.progressbar.HorizontalProgressBarActivity">
+
+    <ProgressBar
+        android:id="@+id/pb"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="406px"
+        android:layout_height="64px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45"
+        android:foregroundGravity="center"
+        android:max="100"
+        android:progress="25"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/layer_list_horizontal_progressbar" />
+
+    <Button
+        android:id="@+id/init"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp45"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45"
+        android:gravity="center"
+        android:text="重置" />
+
+    <Button
+        android:id="@+id/step1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp45"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45"
+        android:gravity="center"
+        android:text="第一步" />
+
+    <Button
+        android:id="@+id/step2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp45"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45"
+        android:gravity="center"
+        android:text="第二步" />
+
+    <Button
+        android:id="@+id/step3"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp45"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45"
+        android:gravity="center"
+        android:text="第三步" />
+
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp45"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45"
+        android:gravity="center"
+        android:text="完成" />
+</LinearLayout>
